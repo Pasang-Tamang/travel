@@ -17,7 +17,6 @@ import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import OwlCarousel from 'react-owl-carousel'
 
-import axios from "axios";
 import { useRouter } from "next/navigation";
 import { tourSearch } from "@/redux/slices/slice";
 
@@ -29,10 +28,9 @@ import { tourSearch } from "@/redux/slices/slice";
 //   { value: 'Bardiya ', label: 'Bardiya ' },
 // ]
 
-const Banner = (clintReview) => {
+const Banner = ({ banner, search }) => {
   const router = useRouter();
-  const [search, setSearch] = useState();
-  const [banner, setBanner] = useState();
+
   const [date, setDate] = useState();
   const [selectPlace, setPlace] = useState();
   const [activity, setActivity] = useState();
@@ -45,34 +43,12 @@ const Banner = (clintReview) => {
     setActivity(e.value);
   };
 
-  const fetchSearch = () => {
-    axios
-      .get("https://destination.missionsummittreks.com/api/searches")
-      .then(({ data }) => {
-        setSearch(data);
-      });
-  };
-
-  const fetchBanner = async () => {
-    try {
-      const response = await axios.get(
-        "https://destination.missionsummittreks.com/api/sliders"
-      );
-      setBanner(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
   const handleDate = (e) => {
     setDate(e.getMonth());
   };
 
   // dispatching fetchSearch and search banner
   const dispatch = useDispatch();
-  useEffect(() => {
-    fetchSearch();
-    fetchBanner();
-  }, []);
 
   const searchHandler = (e) => {
     e.preventDefault();

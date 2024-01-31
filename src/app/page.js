@@ -11,10 +11,29 @@ import Company from "@/components/Home/Company";
 //import ClintReview from "@/components/Home/ClintReview";
 import Suscribe from "@/components/Home/Suscribe";
 import ScrollToTopButton from "@/components/utilities/ScrollTop";
+import Top from "@/components/Home/Top";
+import ClintReview from "@/components/Home/ClintReview";
 
+async function fetchSearch() {
+  const res = await fetch(
+    "https://destination.missionsummittreks.com/api/searches"
+  );
+  const response = res.json();
+  return response;
+}
+
+async function fetchBanner() {
+  const res = await fetch(
+    "https://destination.missionsummittreks.com/api/sliders"
+  );
+
+  const response = res.json();
+  return response;
+}
 async function fetchFeature() {
   const res = await fetch(
-    "https://destination.missionsummittreks.com/api/tours/featuredHolidays"
+    "https://destination.missionsummittreks.com/api/tours/featuredHolidays",
+    "utf-8"
   );
   const response = await res.json();
   return response.data;
@@ -22,10 +41,12 @@ async function fetchFeature() {
 
 async function fetchPopular() {
   const res = await fetch(
-    "https://destination.missionsummittreks.com/api/tours/popular"
+    "https://destination.missionsummittreks.com/api/tours/popular",
+    { cache: "no-store" }
   );
 
   const response = await res.json();
+  var encodedData = encodeURI(response);
   return response.data;
 }
 async function fetchClientReview() {
@@ -33,7 +54,8 @@ async function fetchClientReview() {
     "https://destination.missionsummittreks.com/api/clientreviews"
   );
   const response = await res.json();
-  return response.data;
+
+  return response;
 }
 async function fetchMeta() {
   const res = await fetch(
@@ -43,11 +65,26 @@ async function fetchMeta() {
   return response.data;
 }
 
+async function fetchTops() {
+  const res = await fetch(
+    "https://destination.missionsummittreks.com/api/topdestinations"
+  );
+
+  const response = await res.json();
+  // console.log("destinationsss",  response);
+  return response;
+}
+
 export default async function Home() {
+  const search = await fetchSearch();
+  const banner = await fetchBanner();
   const featureTour = await fetchFeature();
   const popularTour = await fetchPopular();
   const clientReview = await fetchClientReview();
   const meta = await fetchMeta();
+  const destination = await fetchTops();
+
+  //console.log("banner", banner, "search", search);
   //console.log("pops", popularTour);
 
   return (
@@ -62,14 +99,16 @@ export default async function Home() {
       </head> */}
       <Header />
 
-      <Banner clintReview={clientReview} />
+      <Banner banner={banner} search={search} />
       <Service />
       <SliderComponent popularTour={popularTour} />
 
-      <Feature featureTour={featureTour} popularTour={popularTour} />
-      <Booking featureTour={featureTour} clintReview={clientReview} />
+      <Feature featureTour={featureTour} />
+      <Booking />
       <Company />
-      {/* <ClintReview clintReview={clientReview} /> */}
+      {console.log(destination, "checkdestins")}
+      <Top destination={destination} />
+      <ClintReview clintReview={clientReview} />
       <Suscribe />
       <ScrollToTopButton />
     </main>

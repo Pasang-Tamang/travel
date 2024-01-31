@@ -17,6 +17,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta charset="utf-8" />
         <link rel="icon" href="./Logo.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

@@ -131,7 +131,7 @@ const SliderComponent = ({ popularTour }) => {
             {popularTour?.map((popular, index) => {
               return (
                 <div className="top-place" key={`popular_${index}`}>
-                  {console.log(popular, "index")}
+                  {/* {console.log(popular, "index")} */}
                   <div className="img-box">
                     <Link href={`/trip/${popular.slug}`}>
                       <img
