@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { lazy } from "react";
 
-import Header from "@/components/header/Header";
 import Feature from "@/components/Home/Feature";
 import Banner from "@/components/Home/Banner";
 import Service from "@/components/Home/Service";
@@ -46,7 +45,7 @@ async function fetchPopular() {
   );
 
   const response = await res.json();
-  var encodedData = encodeURI(response);
+
   return response.data;
 }
 async function fetchClientReview() {
@@ -97,7 +96,6 @@ export default async function Home() {
         <meta name="title" content={meta?.meta_title} />
         <meta name="keywords" content={meta?.meta_keyword} />
       </head> */}
-      <Header />
 
       <Banner banner={banner} search={search} />
       <Service />
@@ -106,7 +104,7 @@ export default async function Home() {
       <Feature featureTour={featureTour} />
       <Booking />
       <Company />
-      {console.log(destination, "checkdestins")}
+
       <Top destination={destination} />
       <ClintReview clintReview={clientReview} />
       <Suscribe />

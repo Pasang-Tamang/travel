@@ -14,7 +14,7 @@ import Link from "next/link";
 import { InView, useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import { useScroll } from "./UseScroll";
-import { testimonialsAnimations } from "@/app/animation/Animation";
+import { testimonialsAnimations } from "@/animation/Animation";
 import { useDispatch, useSelector } from "react-redux";
 import { postquery } from "@/redux/slices/slice";
 
@@ -215,69 +215,6 @@ const Footer = () => {
                     </button>
                   </form>
                 </div>
-                {/* <div className="mb-query">
-                  <Accordion defaultActiveKey="1">
-                    <Accordion.Item eventKey="0">
-                      <Accordion.Header
-                        onClick={() => {
-                          setDown(!down)
-                          setArrow('first')
-                        }}
-                      >
-                        Inquiry Form{' '}
-                        <KeyboardArrowDownIcon
-                          className={
-                            down === true && arrow === 'first'
-                              ? 'rotate down'
-                              : 'down'
-                          }
-                        />
-                      </Accordion.Header>
-                      <Accordion.Body>
-                        <form action="" className="mt-4">
-                          <input
-                            type="text"
-                            placeholder="Your name"
-                            className="foot-input"
-                            name="name"
-                            onChange={handleChange}
-                            value={enquery.fullname}
-                          />
-                          <input
-                            type="text"
-                            placeholder="Phone no."
-                            name="number"
-                            onChange={handleChange}
-                            value={enquery.number}
-                            className="foot-input"
-                          />
-                          <input
-                            type="text"
-                            placeholder="Email"
-                            className="foot-input"
-                            name="email"
-                            onChange={handleChange}
-                            value={enquery.email}
-                          />
-                          <textarea
-                            name="message"
-                            id=""
-                            cols="10"
-                            value={enquery.message}
-                            rows="4"
-                            placeholder="Message"
-                            className="foot-input"
-                            onChange={handleChange}
-                          ></textarea>
-                          <button className="btn-send">
-                            Send
-                            <EastOutlinedIcon className="ms-2" />
-                          </button>
-                        </form>
-                      </Accordion.Body>
-                    </Accordion.Item>
-                  </Accordion>
-                </div> */}
               </Col>
               <Col md={6} lg={2}>
                 <div className="inquery-form">

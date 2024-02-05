@@ -21,7 +21,15 @@ import Vedio from "./Vedio";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import PopUpModel from "../reusableComponents/PopUpModel";
-import $ from "jquery";
+
+// export async function getStaticParams() {
+//   const res = await fetch(
+//     "https://destination.missionsummittreks.com/api/tours/popular"
+//   );
+//   const popularTour = await res.json();
+//   return { props: { popularTour } };
+// }
+
 const SliderComponent = ({ popularTour }) => {
   // console.log("dsdasd", popularTour);
   const modalImage = [

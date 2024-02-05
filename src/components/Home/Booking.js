@@ -10,7 +10,7 @@ import ReactStar from "react-rating-stars-component";
 import { motion } from "framer-motion";
 
 import { useScroll } from "../UseScroll";
-import { testimonialsAnimations } from "@/app/animation/Animation";
+import { testimonialsAnimations } from "@/animation/Animation";
 
 const Booking = (props) => {
   const options = {

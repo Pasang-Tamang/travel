@@ -1,23 +1,25 @@
 import { Inter } from "next/font/google";
-import "../styles/globals.css";
+import "./globals.css";
 import Providers from "@/redux/Provider";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import "react-image-lightbox/style.css";
 import Footer from "@/components/Footer";
+import Header from "@/components/header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Mission Summit Trek",
   description: "",
+  image: "./Logo.png",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="npgg">
       <head>
-        <meta charset="utf-8" />
+        {/* <meta charset="utf-8" /> */}
         <link rel="icon" href="./Logo.png" />
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -32,6 +34,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={inter.className}>
         <Providers>
+          <Header />
           <div>{children}</div>
           <Footer />
         </Providers>

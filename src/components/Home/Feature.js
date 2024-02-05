@@ -16,7 +16,7 @@ import { useScroll } from "../UseScroll";
 import Vedio from "./Vedio";
 import ImageList from "./ImageList";
 import PopUpModel from "../reusableComponents/PopUpModel";
-import { featureAnimation } from "@/app/animation/Animation";
+import { featureAnimation } from "@/animation/Animation";
 
 const Feature = ({ featureTour }) => {
   const [isOpen, setIsOpen] = useState(false);

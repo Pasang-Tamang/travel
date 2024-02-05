@@ -4,8 +4,8 @@ import { Container, Row, Col } from "react-bootstrap";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useScroll } from "../UseScroll";
-import { topPlaceContent } from "@/app/animation/Animation";
-import { topDist } from "@/app/animation/Animation";
+import { topPlaceContent } from "@/animation/Animation";
+import { topDist } from "@/animation/Animation";
 
 const Top = ({ destination }) => {
   const [element, controls] = useScroll();
