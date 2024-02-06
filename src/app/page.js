@@ -40,8 +40,7 @@ async function fetchFeature() {
 
 async function fetchPopular() {
   const res = await fetch(
-    "https://destination.missionsummittreks.com/api/tours/popular",
-    { cache: "no-store" }
+    "https://destination.missionsummittreks.com/api/tours/popular"
   );
 
   const response = await res.json();
@@ -107,32 +106,15 @@ export default async function Home() {
       </head> */}
       <Banner banner={banner} search={search} />
       <Service />
-
-      {/* <SliderComponent popularTour={popularTour} /> */}
-      {/* <Feature featureTour={featureTour} /> */}
-      {/* <SliderComponent popularTour={popularTour} />
-      // <Feature featureTour={featureTour} /> */}
+      <SliderComponent popularTour={popularTour} />
+      <Feature featureTour={featureTour} />
       <Booking featuredHome={featuredHome} />
       <Company />
 
       <Top destination={destination} />
-      {/* <ClintReview clintReview={clientReview} /> */}
-      <ScrollToTopButton />
-      {/* <SliderComponent popularTour={popularTour} /> */}
-      {/* <Banner banner={banner} search={search} /> */}
-      {/* <SliderComponent popularTour={popularTour} /> */}
-      {/* <Booking /> */}
-      {/* <Service />
-      <SliderComponent popularTour={popularTour} />
-
-      <Feature featureTour={featureTour} />
-      <Booking />
-      <Company />
-
-      <Top destination={destination} />
       <ClintReview clintReview={clientReview} />
-      <Suscribe />
-      <ScrollToTopButton /> */}
+      {/* <Suscribe /> */}
+      <ScrollToTopButton />
     </main>
   );
 }

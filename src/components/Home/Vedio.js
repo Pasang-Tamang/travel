@@ -1,19 +1,10 @@
-import React from 'react';
+import React from "react";
 // import axios from 'axios';
 // import { useParams } from 'react-router-dom';
 
 const Video = (props) => {
-
-
-
-
-
-
   // const { id } = useParams()
   // const [video, setVideo] = useState();
-
-
-
 
   // useEffect(() => {
   //   const fetchData = async () => {
@@ -27,12 +18,11 @@ const Video = (props) => {
   //   fetchData()
   // })
 
-
   return (
     <>
       <iframe
         width="100%"
-        height="100%"
+        height="400px"
         src={props?.url}
         title="YouTube video player"
         frameBorder="0"

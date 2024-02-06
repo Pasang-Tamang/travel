@@ -105,49 +105,57 @@ const EverestTrek = ({ tour, tripId }) => {
     // Calculate the scroll position for the target element
     const targetScrollPosition = targetRef.current.offsetTop;
 
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: targetScrollPosition,
+        behavior: "smooth", // You can adjust scrolling behavior as needed
+      });
+    }
     // Scroll to the target element
-    window.scrollTo({
-      top: targetScrollPosition,
-      behavior: "smooth", // You can adjust scrolling behavior as needed
-    });
   };
   const handleInqueryForm = () => setShow(true);
 
   const isShowRating = tour?.overall_rating > 0;
   const setfixMid = () => {
-    if (window.scrollY <= 600) {
-      setFixs(true);
-    } else {
-      setFixs(false);
+    if (typeof window !== "undefined") {
+      if (window.scrollY <= 600) {
+        setFixs(true);
+      } else {
+        setFixs(false);
+      }
     }
   };
 
   const setFixed = () => {
-    if (window.scrollY >= 600) {
-      setFix(true);
-      const distanceFromBottom =
-        document.documentElement.scrollHeight -
-        window.innerHeight -
-        window.scrollY;
-
-      // Define a threshold value (e.g., 300 pixels from the bottom)
-      const threshold = 518;
-
-      // Check if the distance from the bottom is less than or equal to the threshold
-      if (distanceFromBottom <= threshold) {
-        // Your condition when close to the bottom of the page
-
-        setFix(false);
-      } else {
+    if (typeof window !== "undefined") {
+      if (window.scrollY >= 600) {
         setFix(true);
+        const distanceFromBottom =
+          document.documentElement.scrollHeight -
+          window.innerHeight -
+          window.scrollY;
+
+        // Define a threshold value (e.g., 300 pixels from the bottom)
+        const threshold = 518;
+
+        // Check if the distance from the bottom is less than or equal to the threshold
+        if (distanceFromBottom <= threshold) {
+          // Your condition when close to the bottom of the page
+
+          setFix(false);
+        } else {
+          setFix(true);
+        }
+      } else {
+        setFix(false);
       }
-    } else {
-      setFix(false);
     }
   };
 
-  window.addEventListener("scroll", setFixed);
-  window.addEventListener("scroll", setfixMid);
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", setFixed);
+    window.addEventListener("scroll", setfixMid);
+  }
   return (
     <>
       <Container>

@@ -34,7 +34,7 @@ const ProfileItem = (props) => {
                 value={props.star_rating}
                 count={props.star_rating}
                 isHalf={true}
-                size={window.innerWidth < 600 ? 20 : 20}
+                // size={window.innerWidth < 600 ? 20 : 20}
               />
             )}
           </div>

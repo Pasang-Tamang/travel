@@ -1,9 +1,8 @@
 "use client";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
-import React, { useState, useEffect } from "react";
-// import Slider from 'react-slick'
-import OwlCarousel from "react-owl-carousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import MobileDetect from "mobile-detect";
+import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import EastOutlinedIcon from "@mui/icons-material/EastOutlined";
 import FilterOutlinedIcon from "@mui/icons-material/FilterOutlined";
@@ -31,6 +30,18 @@ import PopUpModel from "../reusableComponents/PopUpModel";
 // }
 
 const SliderComponent = ({ popularTour }) => {
+  let deviceType = "";
+  let userAgent;
+
+  const md = new MobileDetect(userAgent);
+  if (md.tablet()) {
+    deviceType = "tablet";
+  } else if (md.mobile()) {
+    deviceType = "mobile";
+  } else {
+    deviceType = "desktop";
+  }
+
   // console.log("dsdasd", popularTour);
   const modalImage = [
     {
@@ -65,53 +76,34 @@ const SliderComponent = ({ popularTour }) => {
   };
 
   const handleCloseVideo = () => setShowVideo(false);
-  const options = {
-    margin: 15,
-    responsiveClass: true,
-    nav: true,
-    navText: [
-      '<i class="fa-solid fa-arrow-left"></i>',
-      '<i class="fa-solid fa-arrow-right"></i>',
-    ],
-    dots: true,
-    autoplay: false,
-    smartSpeed: 1000,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 1,
-      },
-      600: {
-        items: 2,
-      },
-      700: {
-        items: 2,
-      },
-      1000: {
-        items: 2,
-      },
+  const responsive = {
+    // ssr: true,
+    // showDots: false,
+    // autoplay: false,
+    // swipeable: false,
+    // margin: 4,
+    // responsiveClass: true,
+    // nav: true,
+    // smartSpeed: 1000,
+
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 2,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 2,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
     },
   };
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount((prevCount) => {
-        if (prevCount >= 2) {
-          clearInterval(interval);
-          return prevCount;
-        }
-        return prevCount + 1;
-      });
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
   // console.log("popular", popularTour);
 
   return (
@@ -134,7 +126,13 @@ const SliderComponent = ({ popularTour }) => {
         <Container className="mt-5">
           <h2 className="text-center mb-2 fp-bold">Most Popular Trekking</h2>
 
-          <OwlCarousel className="owl-theme top-place-carsouel" {...options}>
+          <Carousel
+            className="owl-theme top-place-carsouel"
+            responsive={responsive}
+            ssr={true}
+            deviceType={deviceType}
+            padding={4}
+          >
             {/* {console.log("owlpop", popularTour, "owlpop")} */}
             {popularTour?.map((popular, index) => {
               return (
@@ -224,7 +222,7 @@ const SliderComponent = ({ popularTour }) => {
                 </div>
               );
             })}
-          </OwlCarousel>
+          </Carousel>
         </Container>
       </section>
     </>

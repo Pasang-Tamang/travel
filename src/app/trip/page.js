@@ -15,8 +15,8 @@ async function page() {
   const tours = await getToursData();
   return (
     <div>
-      <TripCatalog tours={tours} />
       <Filter />
+      <TripCatalog tours={tours} />
     </div>
   );
 }

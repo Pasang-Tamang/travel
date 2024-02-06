@@ -1,42 +1,54 @@
 /* eslint-disable no-unused-vars */
 "use client";
 import React from "react";
-//import { useState, useEffect } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import { Container } from "react-bootstrap";
-import OwlCarousel from "react-owl-carousel";
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
 
 import ProfileItem from "./ProfileItem";
+import MobileDetect from "mobile-detect";
 
 const ClintReview = ({ clintReview }) => {
-  const option = {
-    margin: 20,
-    responsiveClass: true,
-    nav: false,
-    dots: true,
-    autoplay: false,
-    smartSpeed: 1000,
-    responsive: {
-      0: {
-        items: 1,
-      },
-      400: {
-        items: 1,
-      },
-      600: {
-        items: 2,
-      },
-      700: {
-        items: 2,
-      },
-      1000: {
-        items: 3,
-      },
+  let deviceType = "";
+  let userAgent;
+
+  const md = new MobileDetect(userAgent);
+  if (md.tablet()) {
+    deviceType = "tablet";
+  } else if (md.mobile()) {
+    deviceType = "mobile";
+  } else {
+    deviceType = "desktop";
+  }
+
+  const responsive = {
+    // ssr: true,
+    // margin: 20,
+    // responsiveClass: true,
+    // nav: false,
+    // showDots: false,
+    // autoplay: false,
+    // smartSpeed: 1000,
+
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
+      items: 3,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
     },
   };
+
   // const [count, setCount] = useState(0);
   // useEffect(() => {
   //   const interval = setInterval(() => {
@@ -68,12 +80,17 @@ const ClintReview = ({ clintReview }) => {
             <span>Our happy</span> Clients
           </h1>
 
-          <OwlCarousel className="owl-theme clint-review-carsouel" {...option}>
+          <Carousel
+            className="owl-theme clint-review-carsouel"
+            responsive={responsive}
+            ssr={true}
+            deviceType={deviceType}
+          >
             {console.log(clintReview, "reviewss")}
             {clintReview?.map((clint) => (
               <ProfileItem {...clint} />
             ))}
-          </OwlCarousel>
+          </Carousel>
         </Container>
       </section>
     </>

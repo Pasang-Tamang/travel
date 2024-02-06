@@ -1,38 +1,34 @@
-// "use client";
+"use client";
 import React, { useState } from "react";
-//import OwlCarousel from "react-owl-carousel";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 import Lightbox from "react-image-lightbox";
 
-var $ = require("jquery");
-if (typeof window !== "undefined") {
-  window.$ = window.jQuery = require("jquery");
-}
-import "owl.carousel/dist/assets/owl.carousel.css";
-import "owl.carousel/dist/assets/owl.theme.default.css";
-import dynamic from "next/dynamic";
-
-const OwlCarousel = dynamic(() => import("react-owl-carousel"), { ssr: false });
 const option = {
+  ssr: true,
+  showDots: false,
+  autoplay: false,
+  swipeable: false,
   margin: 4,
   responsiveClass: true,
   nav: true,
-  dots: false,
-  autoplay: false,
   smartSpeed: 1000,
   responsive: {
-    0: {
-      items: 1,
-    },
-    400: {
-      items: 1,
-    },
-    600: {
+    superLargeDesktop: {
+      // the naming can be any, depends on you.
+      breakpoint: { max: 4000, min: 3000 },
       items: 2,
     },
-    700: {
-      items: 2,
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 1,
     },
-    1000: {
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 1,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
       items: 1,
     },
   },
@@ -42,7 +38,7 @@ const ImageListm = ({ gallery }) => {
 
   return (
     <>
-      <OwlCarousel className="owl-theme  modal-img-slide" {...option}>
+      <Carousel className="owl-theme  modal-img-slide" {...option}>
         {gallery?.map((source, index) => {
           return (
             <div className="modal-img" key={`modal_${index}`}>
@@ -65,7 +61,7 @@ const ImageListm = ({ gallery }) => {
             onCloseRequest={() => setIsViewerOpen(false)}
           />
         )}
-      </OwlCarousel>
+      </Carousel>
     </>
   );
 };

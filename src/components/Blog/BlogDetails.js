@@ -69,7 +69,7 @@ const BlogDetails = ({ blogDetailList }) => {
                         url={shareURL}
                         title={blogDetailList?.meta_title}
                         image={imageURL}
-                        description={blogDetailList?.description}
+                        // description={blogDetailList?.description}
                       >
                         <FacebookIcon size={32} round />
                       </FacebookShareButton>
@@ -80,7 +80,7 @@ const BlogDetails = ({ blogDetailList }) => {
                         url={shareURL}
                         title={blogDetailList?.meta_title}
                         image={imageURL}
-                        description={blogDetailList?.description}
+                        // description={blogDetailList?.description}
                       >
                         <WhatsappIcon size={32} round />
                       </WhatsappShareButton>
