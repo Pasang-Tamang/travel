@@ -13,9 +13,7 @@ const Top = ({ destination }) => {
   return (
     <>
       <section className="top-destination pt-5" ref={element}>
-        <h1 className="mb-4">
-          <span>Top</span> Destinations
-        </h1>
+        <h2 className="mb-4 text-center text-lg">Top Destinations</h2>
         <Container>
           <Row className="gy-4">
             {console.log("desti", destination)}

@@ -12,13 +12,13 @@ import SelecteComponent from "../utilities/Selecte";
 
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import Link from "next/link";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import OwlCarousel from 'react-owl-carousel'
 
 import { useRouter } from "next/navigation";
-import { tourSearch } from "@/redux/slices/slice";
+//import { tourSearch } from "@/redux/slices/slice";
 
 // const options = [
 //   { value: 'Pokhara', label: 'Pokhara' },
@@ -48,13 +48,13 @@ const Banner = ({ banner, search }) => {
   };
 
   // dispatching fetchSearch and search banner
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const searchHandler = (e) => {
     e.preventDefault();
 
-    dispatch(tourSearch({ selectPlace, activity }));
-    router.push("/search");
+    // dispatch(tourSearch({ selectPlace, activity }));
+    // router.push("/search");
   };
 
   //******************************** Try to search *******************

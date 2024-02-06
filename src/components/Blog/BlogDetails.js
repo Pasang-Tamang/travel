@@ -22,8 +22,7 @@ import {
 } from "react-share";
 
 const BlogDetails = ({ blogDetailList }) => {
-  const shareURL =
-    "https://destination.missionsummittreks.com/" + location.pathname;
+  const shareURL = "https://destination.missionsummittreks.com/";
   //console.log(shareURL);
   const imageURL =
     "https://destination.missionsummittreks.com/" + blogDetailList?.image;
@@ -103,7 +102,7 @@ const BlogDetails = ({ blogDetailList }) => {
 
                     <div>
                       <PinterestShareButton
-                        media={window.baseURL + blogDetailList?.image}
+                        // media={window.baseURL + blogDetailList?.image}
                         url={shareURL}
                       >
                         <PinterestIcon size={32} round />

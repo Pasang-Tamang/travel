@@ -14,9 +14,10 @@ import { motion } from "framer-motion";
 import { useScroll } from "../UseScroll";
 
 import Vedio from "./Vedio";
-import ImageList from "./ImageList";
+
 import PopUpModel from "../reusableComponents/PopUpModel";
 import { featureAnimation } from "@/animation/Animation";
+import ImageListm from "./ImageList";
 
 const Feature = ({ featureTour }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -77,7 +78,7 @@ const Feature = ({ featureTour }) => {
     activeColor: "#FB8500",
     value: 4.5,
     isHalf: true,
-    size: window.innerWidth < 600 ? 20 : 26,
+    // size: window.innerWidth < 600 ? 20 : 26,
     count: 5,
   };
 
@@ -89,7 +90,7 @@ const Feature = ({ featureTour }) => {
     activeColor: "#fb8500",
     value: rating, // Initial value
     isHalf: true,
-    size: window.innerWidth < 600 ? 20 : 28,
+    // size: window.innerWidth < 600 ? 20 : 28,
   };
 
   const handleRatingChange = (value) => {
@@ -111,7 +112,7 @@ const Feature = ({ featureTour }) => {
           show={show}
           handleclose={handleClose}
           header="Trip Images"
-          body={<ImageList gallery={galleries} />}
+          body={<ImageListm gallery={galleries} />}
           className="img-popup"
         />
 
@@ -121,7 +122,7 @@ const Feature = ({ featureTour }) => {
           body={<Vedio url={url} />}
           className="img-popup"
         />
-        <h1 className="text-center mb-4 fp-bold"> Feature Holidays Package </h1>
+        <h2 className="text-center mb-4 fp-bold"> Feature Holidays Package </h2>
         <Container className="">
           <div className="iphone-se">
             <Row className="">
@@ -133,7 +134,7 @@ const Feature = ({ featureTour }) => {
                   activeColor: "#fb8500",
                   value: data?.overall_rating,
                   isHalf: true,
-                  size: window.innerWidth < 600 ? 20 : 20,
+                  // size: window.innerWidth < 600 ? 20 : 20,
                   count: 5,
                 };
                 return (

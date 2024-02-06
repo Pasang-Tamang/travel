@@ -132,7 +132,7 @@ const SliderComponent = ({ popularTour }) => {
 
       <section className="slide">
         <Container className="mt-5">
-          <h1 className="text-center mb-2 fp-bold">Most Popular Trekking</h1>
+          <h2 className="text-center mb-2 fp-bold">Most Popular Trekking</h2>
 
           <OwlCarousel className="owl-theme top-place-carsouel" {...options}>
             {/* {console.log("owlpop", popularTour, "owlpop")} */}

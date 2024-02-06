@@ -36,7 +36,7 @@ const TripCatalog = (props) => {
           activeColor: "#fb8500",
           value: item?.overall_rating,
           isHalf: true,
-          size: window.innerWidth < 600 ? 20 : 20,
+          // size: window.innerWidth < 600 ? 20 : 20,
           count: 5,
         };
 

@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
       <head>
         {/* <meta charset="utf-8" /> */}
         <link rel="icon" href="./Logo.png" />
-        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        {/* <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> */}
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <link
           rel="stylesheet"
@@ -31,13 +31,20 @@ export default function RootLayout({ children }) {
           referrerPolicy="no-referrer"
         />
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+          integrity="sha512-QAc08ipPd7ElgrEsKMj9mFi1LOYhEBBeusKfVSXktZSjlm5BIThey5q7IEYtZVixxC+lIN6CnSZCfI4s00Dq3w=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        ></script>
       </head>
       <body className={inter.className}>
-        <Providers>
+        {/* <Providers>
           <Header />
           <div>{children}</div>
           <Footer />
-        </Providers>
+        </Providers> */}
+        {children}
       </body>
     </html>
   );

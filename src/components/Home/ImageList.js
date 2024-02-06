@@ -1,11 +1,17 @@
-import React, { useState } from 'react'
-// import { Row, Col } from 'react-bootstrap'
-import OwlCarousel from 'react-owl-carousel'
-import Lightbox from 'react-image-lightbox'
-// import axios from 'axios'
-// import { useParams } from 'react-router-dom'
-// import Gallery from 'react-photo-gallery'
+// "use client";
+import React, { useState } from "react";
+//import OwlCarousel from "react-owl-carousel";
+import Lightbox from "react-image-lightbox";
 
+var $ = require("jquery");
+if (typeof window !== "undefined") {
+  window.$ = window.jQuery = require("jquery");
+}
+import "owl.carousel/dist/assets/owl.carousel.css";
+import "owl.carousel/dist/assets/owl.theme.default.css";
+import dynamic from "next/dynamic";
+
+const OwlCarousel = dynamic(() => import("react-owl-carousel"), { ssr: false });
 const option = {
   margin: 4,
   responsiveClass: true,
@@ -30,34 +36,28 @@ const option = {
       items: 1,
     },
   },
-}
-const ImageListm = ({ popularTour, gallery }) => {
-
-  const [isViewerOpen, setIsViewerOpen] = useState(false)
-
-
-
+};
+const ImageListm = ({ gallery }) => {
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
 
   return (
     <>
       <OwlCarousel className="owl-theme  modal-img-slide" {...option}>
         {gallery?.map((source, index) => {
-
           return (
             <div className="modal-img" key={`modal_${index}`}>
               <img
                 style={{
-                  height: '400px'
+                  height: "400px",
                 }}
-                src={window.baseURL + source?.image}
+                src={
+                  "https://destination.missionsummittreks.com/" + source?.image
+                }
                 alt=""
-
                 className="img-fluid"
-
-
               />
             </div>
-          )
+          );
         })}
         {isViewerOpen && (
           <Lightbox
@@ -67,7 +67,7 @@ const ImageListm = ({ popularTour, gallery }) => {
         )}
       </OwlCarousel>
     </>
-  )
-}
+  );
+};
 
-export default ImageListm
+export default ImageListm;

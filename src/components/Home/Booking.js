@@ -1,6 +1,6 @@
 "use client";
-import { React, useState, useEffect } from "react";
-import axios from "axios";
+import { React, useState } from "react";
+
 import Link from "next/link";
 import SkateboardingIcon from "@mui/icons-material/Skateboarding";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
@@ -12,30 +12,28 @@ import { motion } from "framer-motion";
 import { useScroll } from "../UseScroll";
 import { testimonialsAnimations } from "@/animation/Animation";
 
-const Booking = (props) => {
+const Booking = ({ featuredHome }) => {
   const options = {
     edit: false,
     color: "#fb8500",
     activeColor: "#fb8500",
     value: 4.5,
     isHalf: true,
-    size: window.innerWidth < 600 ? 30 : 46,
+    // size: window.innerWidth < 600 ? 30 : 46,
     count: 5,
   };
   const [element, controls] = useScroll();
 
-  const [featuredHome, setFeaturedHome] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        "https://destination.missionsummittreks.com/api/tours/featuredHome"
-      );
-      setFeaturedHome(response.data);
-    };
-    fetchData();
-  }, []); // Empty dependency array to fetch data only once on mount
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await axios.get(
+  //       "https://destination.missionsummittreks.com/api/tours/featuredHome"
+  //     );
+  //     setFeaturedHome(response.data);
+  //   };
+  //   fetchData();
+  // }, []); // Empty dependency array to fetch data only once on mount
 
-  console.log("hello featured hh", window.baseURL + featuredHome?.image);
   const [rating, setRating] = useState(0);
   const ratingOptions = {
     edit: false,
@@ -44,20 +42,22 @@ const Booking = (props) => {
     activeColor: "#fb8500",
     value: rating, // Initial value
     isHalf: true,
-    size: window.innerWidth < 600 ? 20 : 28,
+    // size: window.innerWidth < 600 ? 20 : 28,
   };
 
   const handleRatingChange = (value) => {
     setRating(value); // Update the rating value in the state
   };
-  useEffect(() => {}, [options.value]);
+  // useEffect(() => {}, [options.value]);
 
   return (
     <>
       <section
         className="booking"
         style={{
-          backgroundImage: `url(${window.baseURL + featuredHome?.image})`,
+          backgroundImage: `url(${
+            "https://destination.missionsummittreks.com" + featuredHome?.image
+          })`,
           backgroundSize: "cover",
         }}
         ref={element}
