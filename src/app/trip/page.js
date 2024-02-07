@@ -1,6 +1,7 @@
 import Filter from "@/components/Trip/Filter";
 import TripCatalog from "@/components/Trip/TripCatalog";
 import React from "react";
+import { Container } from "react-bootstrap";
 
 async function getToursData() {
   const res = await fetch(
@@ -15,8 +16,16 @@ async function page() {
   const tours = await getToursData();
   return (
     <div>
-      <Filter />
-      <TripCatalog tours={tours} />
+      <Container>
+        <div className="expedition">
+          <div className="filter-box no-tablet">
+            <Filter />
+          </div>
+          <div className="triplist">
+            <TripCatalog tours={tours} />
+          </div>
+        </div>
+      </Container>
     </div>
   );
 }

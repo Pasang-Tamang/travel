@@ -88,7 +88,7 @@ const ClintReview = ({ clintReview }) => {
           >
             {console.log(clintReview, "reviewss")}
             {clintReview?.map((clint) => (
-              <ProfileItem {...clint} />
+              <ProfileItem key={clint} {...clint} />
             ))}
           </Carousel>
         </Container>

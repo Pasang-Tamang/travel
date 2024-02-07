@@ -1,5 +1,10 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import "./styles.css";
+// import "@/styles/globals.css";
+// import "../styles/styles.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/js/bootstrap.min.js";
 import Providers from "@/redux/Provider";
 
 import "react-image-lightbox/style.css";
@@ -35,8 +40,10 @@ export default function RootLayout({ children }) {
           integrity="sha512-QAc08ipPd7ElgrEsKMj9mFi1LOYhEBBeusKfVSXktZSjlm5BIThey5q7IEYtZVixxC+lIN6CnSZCfI4s00Dq3w=="
           crossorigin="anonymous"
           referrerpolicy="no-referrer"
-        ></script> */}
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js"></script>
+        ></script> 
+        
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js"></script>
+        */}
       </head>
       <body className={inter.className}>
         {/* <Providers>
