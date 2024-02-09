@@ -362,14 +362,11 @@ header .bg-light .nav-item .drop-menu li a:hover {
 .triplist ul li {
   margin-bottom: 3px;
 }
-.triplist .tour-event ul li {
-  font-size: 15px;
-  font-weight: 500;
-  color: #313131;
+.tour-event ul {
+  padding-left: 0 !important;
 }
-.triplist .tour-type ul li {
-  font-size: 15px;
-  font-weight: 600;
+.tour-type ul {
+  padding-left: 0 !important;
 }
 .triplist .title-trip {
   border-bottom: 1px solid #e4e4e4;
@@ -414,11 +411,11 @@ header .bg-light .nav-item .drop-menu li a:hover {
   font-size: 17px;
   color: #fb8500;
 }
-.triplist .img-content span {
+/* .triplist .img-content span {
   color: #afafaf;
   font-size: 16px;
   font-weight: 500;
-}
+} */
 .triplist .img-content p {
   color: #313131;
   font-size: 12px;
@@ -496,7 +493,7 @@ button {
   color: #fb8500;
 }
 
-.top-btn {
+/* .top-btn {
   background-color: #fb8500;
   position: absolute;
   top: 6%;
@@ -509,7 +506,7 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 @media (max-width: 576px) {
   .top-btn {
     right: 2% !important;
@@ -520,31 +517,23 @@ button {
 .private {
   background-color: #a38059 !important;
 }
-
-.feature-btn {
-  background-color: #fb8500;
-  position: absolute;
-  top: 9%;
-  left: 4%;
-  color: white;
-  padding: 4px 10px;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 300;
+@media (max-width: 576px) {
+  .blog-desc table td {
+    padding: 10px 0 !important;
+  }
 }
-
 .btn {
-  padding: 10px 30px;
-  background-color: #fb8500;
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: 500;
-  color: white;
+  padding: 10px 30px !important;
+  background-color: #fb8500 !important;
+  border-radius: 6px !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color: white !important;
 }
 .btn:hover {
-  background-color: transparent;
-  border: 1px solid #fb8500;
-  color: #fb8500;
+  background-color: transparent !important;
+  border: 1px solid #fb8500 !important ;
+  color: #000 !important;
   padding-right: 30px;
 }
 
@@ -655,26 +644,6 @@ button {
 
 .accordion-body {
   padding: 0 !important;
-}
-
-.view-btn {
-  border: 2px solid #fb8500;
-  padding: 8px 14px;
-  background-color: #fff;
-  border-radius: 4px;
-  width: 100%;
-  transition: all 0.4s linear;
-}
-.view-btn:hover {
-  background-color: #fb8500;
-}
-.view-btn:hover a {
-  color: white !important;
-}
-.view-btn a {
-  color: #4c4c4c;
-  font-size: 14px;
-  font-weight: 400;
 }
 
 .breadcrump {
@@ -897,13 +866,13 @@ option {
   font-weight: 500;
 }
 
-.btn-continue {
+/* .btn-continue {
   margin-top: 30px;
   border: 1px solid #fb8500;
   border-radius: 16px;
   padding: 6px 21px;
   background-color: transparent;
-}
+} */
 .btn-continue:hover {
   background-color: #fb8500;
 }
@@ -914,6 +883,7 @@ option {
   color: #fb8500;
   font-size: 16px;
   font-weight: 500;
+  text-decoration: none;
 }
 
 input {
@@ -1379,8 +1349,19 @@ textarea::-webkit-input-placeholder:focus {
   background-size: cover;
   position: relative;
 }
-.banner .banner-img {
-  height: 400px;
+@media (max-width: 576px) {
+  .banner .banner-title h1 {
+    font-size: 26px !important;
+    left: 10% !important;
+  }
+}
+@media (max-width: 576px) {
+  .trip-meta-detail .trip-label {
+    font-size: 13px !important;
+  }
+  .trip-meta-detail .trip-value {
+    font-size: 13px !important;
+  }
 }
 .banner .banner-img img {
   width: 100%;
@@ -1388,36 +1369,12 @@ textarea::-webkit-input-placeholder:focus {
   object-fit: cover;
   height: 100%;
 }
-@media (max-width: 996px) {
+/* @media (max-width: 996px) {
   .banner {
     height: 35vh !important;
   }
-}
-.banner .banner-title h1 {
-  font-size: 48px;
-  font-weight: 600;
-  color: #fff;
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-@media (max-width: 576px) {
-  .banner .banner-title h1 {
-    font-size: 26px !important;
-    top: 34% !important;
-    left: 7% !important;
-  }
-}
-@media (max-width: 996px) {
-  .banner .banner-title h1 {
-    font-size: 36px;
-    left: 201px;
-    top: 20%;
-  }
-}
+} */
+
 .banner .trip {
   padding: 20px 15px;
   position: absolute;
@@ -1530,7 +1487,7 @@ textarea::-webkit-input-placeholder:focus {
 }
 @media (max-width: 576px) {
   .service {
-    padding-top: 315px !important;
+    padding-top: 40px !important;
   }
 }
 
@@ -1724,6 +1681,20 @@ textarea::-webkit-input-placeholder:focus {
   position: relative;
   margin-left: 10px;
 }
+.nav-btn {
+  background-color: #fff !important;
+  border: 0;
+  border: 0 !important;
+  box-shadow: none !important;
+  box-sizing: border-box;
+  color: #023047 !important;
+  font-size: 15px;
+  padding: 8px !important;
+}
+
+.nav-btn:hover {
+  box-shadow: 0.5px 0.5px 5px #fb8500 !important;
+}
 .feature .feature-content .cross::after {
   content: "";
   background-color: #6e6e6e;
@@ -1800,11 +1771,11 @@ textarea::-webkit-input-placeholder:focus {
   background-attachment: fixed;
   z-index: 9;
 }
-@media (max-width: 576px) {
+/* @media (max-width: 576px) {
   .booking .book-btn {
     justify-content: start !important;
   }
-}
+} */
 .booking .booking-text {
   font-weight: 100;
 }
@@ -1958,14 +1929,14 @@ textarea::-webkit-input-placeholder:focus {
 }
 @media (max-width: 576px) {
   .company-detail h1 {
-    font-size: 26px !important;
-    text-align: start;
+    font-size: 24px !important;
+    text-align: center;
   }
 }
 .company-detail h1 span {
   font-weight: 300 !important;
 }
-.company-detail p {
+/* .company-detail p {
   font-size: 16px;
   font-weight: 500;
   word-spacing: 2px;
@@ -1973,12 +1944,7 @@ textarea::-webkit-input-placeholder:focus {
   margin-top: 30px;
   line-height: 23px;
   text-align: center;
-}
-@media (max-width: 576px) {
-  .company-detail p {
-    text-align: start;
-  }
-}
+} */
 
 .top-destination .img-box {
   height: 500px;
@@ -2201,15 +2167,7 @@ textarea::-webkit-input-placeholder:focus {
 .expedition .triplist ul li {
   margin-bottom: 3px;
 }
-.expedition .triplist .tour-event ul li {
-  font-size: 15px;
-  font-weight: 500;
-  color: #313131;
-}
-.expedition .triplist .tour-type ul li {
-  font-size: 15px;
-  font-weight: 600;
-}
+
 .expedition .triplist .title-trip {
   border-bottom: 1px solid #e4e4e4;
 }
@@ -2236,11 +2194,11 @@ textarea::-webkit-input-placeholder:focus {
     margin-bottom: 10px !important;
   }
 }
-.expedition .triplist h5 {
+/* .expedition .triplist h5 {
   font-size: 22px;
   font-weight: 500;
   line-height: 7px;
-}
+} */
 .expedition .triplist .img-content {
   margin-top: 10px;
 }
@@ -2253,16 +2211,16 @@ textarea::-webkit-input-placeholder:focus {
   font-size: 17px;
   color: #fb8500;
 }
-.expedition .triplist .img-content span {
+/* .expedition .triplist .img-content span {
   color: #afafaf;
   font-size: 16px;
   font-weight: 500;
-}
-.expedition .triplist .img-content p {
+} */
+/* .expedition .triplist .img-content p {
   color: #313131;
   font-size: 12px;
   font-weight: 400;
-}
+} */
 .expedition .expedition-box .next-p p {
   font-size: 15px;
   font-weight: 600;
@@ -2324,7 +2282,7 @@ textarea::-webkit-input-placeholder:focus {
   color: #cccccc;
 }
 .filter-box .spesifice-date span {
-  color: #afafaf;
+  /* color: #afafaf; */
   font-size: 14px;
   font-family: 400;
 }
@@ -2766,21 +2724,21 @@ textarea::-webkit-input-placeholder:focus {
   -o-object-fit: cover;
   object-fit: cover;
 }
-.everest-container .everest-left {
+/* .everest-container .everest-left {
   margin-left: 15px;
   position: relative;
   flex-basis: 30%;
-}
+} */
 @media (max-width: 996px) {
   .everest-container .everest-left {
     margin-left: 0;
   }
 }
-.everest-container .everest-left .fix-right {
+/* .everest-container .everest-left .fix-right {
   position: fixed;
   top: 65px;
   width: 300px;
-}
+} */
 .everest-container .everest-left .mid-container {
   transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   padding: 10px 20px;
@@ -3663,7 +3621,9 @@ textarea::-webkit-input-placeholder:focus {
   font-size: 45px;
   font-weight: 600;
 }
-
+ul {
+  padding-left: 0 !important;
+}
 .search .price {
   margin-top: 10px;
   border: 1px dashed #fb8500;
@@ -3697,20 +3657,30 @@ textarea::-webkit-input-placeholder:focus {
   align-items: center;
   justify-content: center;
 }
+a {
+  text-decoration: none !important;
+}
 
+p {
+  font-size: 1rem;
+  line-height: 2.2 !important;
+  margin-bottom: 0 !important;
+}
 .blog h1 {
   color: #023047;
   font-weight: 600;
   font-size: 36px;
 }
-.blog .card .card-body h5 {
+/* .blog .card .card-body h5 {
   font-size: 18px;
   font-weight: 600;
   color: #023047;
-}
-.blog .card .card-body p {
+} */
+/* .blog .card .card-body p {
   margin-top: 20px;
   color: #023047;
   font-size: 15px;
   font-weight: 500;
-} /*# sourceMappingURL=styles.css.map */
+}  */
+
+/*# sourceMappingURL=styles.css.map */

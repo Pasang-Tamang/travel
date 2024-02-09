@@ -9,13 +9,13 @@ import { filterTour } from "./slices/slice";
 
 export const store = configureStore({
   reducer: {
-    Tours: Top,
-    listTour: Tourlist,
+    // Tours: Top,
+    // listTour: Tourlist,
     bannerSetting: setting,
-    review: Review,
+    // review: Review,
     nav: Menu,
-    clientEmail: email,
-    filter: filterTour,
+    // clientEmail: email,
+    // filter: filterTour,
     // middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
   },
 });

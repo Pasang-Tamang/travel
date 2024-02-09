@@ -127,16 +127,15 @@ const SliderComponent = ({ popularTour }) => {
           <h2 className="text-center mb-2 fp-bold">Most Popular Trekking</h2>
 
           <Carousel
-            className="owl-theme top-place-carsouel"
+            className="owl-theme top-place-carsouel "
             responsive={responsive}
             ssr={true}
             deviceType={deviceType}
-            padding={4}
           >
             {/* {console.log("owlpop", popularTour, "owlpop")} */}
             {popularTour?.map((popular, index) => {
               return (
-                <div className="top-place" key={`popular_${index}`}>
+                <div className="top-place m-2" key={`popular_${index}`}>
                   {/* {console.log(popular, "index")} */}
                   <div className="img-box">
                     <Link href={`/trip/${popular.slug}`}>

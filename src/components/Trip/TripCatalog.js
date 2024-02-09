@@ -101,10 +101,10 @@ const TripCatalog = (props) => {
                               {item?.departures?.map((departure, index) => {
                                 if (departure?.start_date > today) {
                                   return (
-                                    <li key={index}>
+                                    <div key={index}>
                                       <li>Starts</li>
                                       <li>Ends </li>
-                                    </li>
+                                    </div>
                                   );
                                 }
                               })}
@@ -121,17 +121,35 @@ const TripCatalog = (props) => {
                               <ul>
                                 {/* <li>{item?.tour_type}</li>
                             <li>{item?.max_altitude}</li> */}
-                                <li>{item.accommodation}</li>
-                                <li>{item?.transport}</li>
-                                <li>{item?.max_altitude}</li>
+                                <li>
+                                  {item.accommodation
+                                    ? item?.accommodation
+                                    : "N/A"}
+                                </li>
+                                <li>
+                                  {item?.transport ? item?.transport : "N/A"}
+                                </li>
+                                <li>
+                                  {item?.max_altitude
+                                    ? item?.max_altitude
+                                    : "N/A"}
+                                </li>
                                 <ul>
                                   {item?.departures?.map((departure, index) => {
                                     if (departure?.start_date > today) {
                                       return (
                                         <li key={index}>
                                           <div>
-                                            <li>{departure?.start_date}</li>
-                                            <li>{departure?.end_date}</li>
+                                            <li>
+                                              {departure?.start_date
+                                                ? departure?.start_date
+                                                : "N/A"}
+                                            </li>
+                                            <li>
+                                              {departure?.end_date
+                                                ? departure.end_date
+                                                : "N/A"}
+                                            </li>
                                           </div>
                                         </li>
                                       );
@@ -197,7 +215,7 @@ const TripCatalog = (props) => {
                             <span className="trip-label">Grade</span>
                             <span className="trip-value">
                               {" "}
-                              {item.trip_grade}
+                              {item?.trip_grade ? item.trip_grade : "N/A"}
                             </span>
                           </span>
                         </div>

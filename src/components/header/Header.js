@@ -24,17 +24,21 @@ const Header = () => {
 
   const [sideMenu, setSideMenu] = useState(false);
   const setFixed = () => {
-    if (window.scrollY >= 150) {
-      setFix(true);
-    } else {
-      setFix(false);
+    if (typeof window !== "undefined") {
+      if (window.scrollY >= 150) {
+        setFix(true);
+      } else {
+        setFix(false);
+      }
     }
   };
   useEffect(() => {
     dispatch(fetchBanner());
     dispatch(fetchMenu());
   }, [dispatch]);
-  window.addEventListener("scroll", setFixed);
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", setFixed);
+  }
   const togggleMenu = () => {
     setSideMenu(!sideMenu);
   };
@@ -49,7 +53,9 @@ const Header = () => {
       subject
     )}&body=${encodeURIComponent(body)}`;
     // Open Gmail compose in a new window or tab
-    window.open(url, "_blank");
+    if (typeof window !== "undefined") {
+      window.open(url, "_blank");
+    }
   };
 
   const makeWARedirect = (phone) => {
@@ -63,7 +69,7 @@ const Header = () => {
           <Container>
             <div className="header-top">
               <h1>
-                Nepal Trek Booking Open For 2024 <span></span> 2
+                Nepal Trek Booking Open For 2024 <span></span> 2025
               </h1>
             </div>
           </Container>
@@ -164,6 +170,15 @@ const Header = () => {
                       />
                     );
                   })}
+
+                  <li className=" nav-item ">
+                    <Link
+                      href="/about"
+                      className=" nav-link active d-flex align-items-center mb-menu"
+                    >
+                      About
+                    </Link>
+                  </li>
 
                   <li className=" nav-item ">
                     <Link

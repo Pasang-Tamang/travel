@@ -19,6 +19,7 @@ const Booking = ({ featuredHome }) => {
     activeColor: "#fb8500",
     value: 4.5,
     isHalf: true,
+    fontSize: 30,
     // size: window.innerWidth < 600 ? 30 : 46,
     count: 5,
   };

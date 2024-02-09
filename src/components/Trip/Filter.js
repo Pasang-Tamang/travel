@@ -131,7 +131,7 @@ const Filter = () => {
                       return (
                         <div key={activity.title}>
                           <Checkbox />
-                          <span className="text-danger">{activity.title}</span>
+                          <span>{activity.title}</span>
                         </div>
                       );
                     });

@@ -376,7 +376,7 @@ header .bg-light .nav-item .drop-menu li a:hover {
 } */
 
 .triplist .tour-type ul li {
-  font-size: 13px;
+  font-size: 14px;
   margin-left: 5px;
   margin-top: 2px;
   padding: 2px;
@@ -528,8 +528,20 @@ button {
 .private {
   background-color: #a38059 !important;
 }
-
 .feature-btn {
+  background-color: #fb8500;
+  border: 1px solid #fb8500;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+  left: 3.5%;
+  padding: 4px 10px;
+  position: absolute;
+  top: 2.7%;
+}
+
+/* .feature-btn {
   color: #fff;
   border: 1px solid #fb8500;
   background-color: #fb8500;
@@ -539,8 +551,8 @@ button {
   left: 3.5%;
   padding: 4px 10px;
   position: absolute;
-  top: 2.7%;
-}
+  top: 3.9%;
+} */
 .fixed-top {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-left: 5px;
@@ -719,6 +731,7 @@ button {
   color: #fff;
   font-size: 14px;
   font-weight: 400;
+  text-decoration: none;
 }
 
 .view-btn:hover {
@@ -2334,7 +2347,7 @@ textarea::-webkit-input-placeholder:focus {
 }
 .triplist .tour-event ul li {
   color: #313131;
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 2px;
   padding: 2px;
 }
@@ -2393,7 +2406,7 @@ textarea::-webkit-input-placeholder:focus {
 }
 .expedition .triplist .img-content p {
   color: #313131;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 400;
   margin: 11px 0;
 }
@@ -2458,7 +2471,7 @@ textarea::-webkit-input-placeholder:focus {
   color: #cccccc;
 }
 .filter-box .spesifice-date span {
-  color: #afafaf;
+  /* color: #afafaf; */
   font-size: 14px;
   font-family: 400;
 }
@@ -3923,9 +3936,10 @@ textarea::-webkit-input-placeholder:focus {
 .expedition .triplist .trip-details {
   align-items: center;
   display: flex;
-  height: 80px;
+  height: 60px;
   justify-content: space-between;
   width: 570px;
+  padding-bottom: 15px;
 }
 .trip-details .trip-info {
   align-items: center;
@@ -3937,10 +3951,11 @@ textarea::-webkit-input-placeholder:focus {
   margin-left: 3px;
 }
 .trip-meta-detail .trip-label {
-  font-size: 13px !important;
+  font-size: 14px !important;
 }
 .trip-details .trip-value {
   color: #1b2b3a;
+  font-size: 14px;
 }
 .banner .blogs-img {
   height: 500px;

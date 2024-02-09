@@ -1,11 +1,15 @@
 import Blog from "@/components/Blog/Blog";
 
-export default async function page() {
+export const fetchBlogs = async () => {
   const res = await fetch(
     "https://destination.missionsummittreks.com/api/blogs/list"
   );
-  const blog = await res.json();
+  const response = await res.json();
+  return response;
+};
 
+export default async function page() {
+  const blog = await fetchBlogs();
   // const meta = blog;
   // console.log(meta, "menu");
   return (

@@ -31,7 +31,8 @@ export async function generateMetadata({ params }, parent) {
 export default async function slug({ params, searchParams }) {
   const slug = params.slug;
   const blogDetailList = await fetchBlogDetailList(slug);
-  // console.log("++++++++++++++", searchParams);
+
+  //console.log("++++++++++++++", params);
 
   return (
     <>

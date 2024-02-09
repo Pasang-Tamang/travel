@@ -38,7 +38,7 @@ async function fetchFeature() {
   return response.data;
 }
 
-async function fetchPopular() {
+export async function fetchPopular() {
   const res = await fetch(
     "https://destination.missionsummittreks.com/api/tours/popular"
   );
