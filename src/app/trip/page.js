@@ -1,3 +1,4 @@
+import Suscribe from "@/components/Home/Suscribe";
 import Filter from "@/components/Trip/Filter";
 import TripCatalog from "@/components/Trip/TripCatalog";
 import React from "react";
@@ -26,6 +27,7 @@ async function page() {
           </div>
         </div>
       </Container>
+      <Suscribe />
     </div>
   );
 }

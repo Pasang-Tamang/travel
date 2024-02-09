@@ -10,33 +10,44 @@ const initialState = {
 };
 
 export const fetchTopPlace = createAsyncThunk("", async () => {
-  const response = axios.get("api/topdestinations");
+  const response = axios.get(
+    "https://destination.missionsummittreks.com/api/topdestinations"
+  );
   return response;
 });
 export const fetchTourList = createAsyncThunk("tour/fetchtours", async () => {
-  const list = await axios.get("/api/tours/list");
+  const list = await axios.get(
+    "https://destination.missionsummittreks.com/api/tours/list"
+  );
   return list;
 });
 export const fetchBanner = createAsyncThunk("home/setting", async () => {
-  const setting = await axios.get("/api/settings");
+  const setting = await axios.get(
+    "https://destination.missionsummittreks.com/api/settings"
+  );
   return setting;
 });
 export const fetchReview = createAsyncThunk("clint/review", async () => {
-  const clint = await axios.get("/api/clientreviews");
+  const clint = await axios.get(
+    "https://destination.missionsummittreks.com/api/clientreviews"
+  );
   return clint;
 });
 
 // import for enquiry form
 export const postQuery = createAsyncThunk("clint/query", async (query) => {
-  const clint = await axios.post("/api/asks", {
-    full_name: query.full_name,
-    email: query.email,
-    contact_number: query.contact_number,
-    booking_details: query.booking_details,
-    comments: query.comments,
-    country: query.country,
-    tour_id: query.tour_id,
-  });
+  const clint = await axios.post(
+    "https://destination.missionsummittreks.com/api/asks",
+    {
+      full_name: query.full_name,
+      email: query.email,
+      contact_number: query.contact_number,
+      booking_details: query.booking_details,
+      comments: query.comments,
+      country: query.country,
+      tour_id: query.tour_id,
+    }
+  );
   if (clint.status === 200) {
     toast.success("Your Query Was Sent Sucessfully");
   }
@@ -46,7 +57,10 @@ export const postQuery = createAsyncThunk("clint/query", async (query) => {
 
 export const postEmail = createAsyncThunk("clint/query", async (email) => {
   try {
-    const clint = await axios.post("/api/subscribes", { email: email });
+    const clint = await axios.post(
+      "https://destination.missionsummittreks.com/api/subscribes",
+      { email: email }
+    );
     console.log("clint subscribe", clint);
     if (clint.status === 200) {
       toast.success(clint.data.message);
@@ -73,12 +87,15 @@ export const postEmail = createAsyncThunk("clint/query", async (email) => {
 
 // For footer and contact page contact
 export const postquery = createAsyncThunk("clint/query", async (enquery) => {
-  const inquiry = await axios.post("/api/inquires", {
-    name: enquery.fullname,
-    email: enquery.email,
-    phone_no: enquery.number,
-    message: enquery.message,
-  });
+  const inquiry = await axios.post(
+    "https://destination.missionsummittreks.com/api/inquires",
+    {
+      name: enquery.fullname,
+      email: enquery.email,
+      phone_no: enquery.number,
+      message: enquery.message,
+    }
+  );
   return alert("your data was submitted", inquiry);
 });
 
@@ -86,14 +103,17 @@ export const postquery = createAsyncThunk("clint/query", async (enquery) => {
 export const postReview = createAsyncThunk(
   "clientReview/psotReview",
   async (review) => {
-    const clientReview = await axios.post("/api/clientreviews", {
-      name: review?.name,
-      email: review?.email,
-      country_name: review?.country_name,
-      description: review?.description,
-      tour_id: review?.tour_id,
-      star_rating: review?.star_rating,
-    });
+    const clientReview = await axios.post(
+      "https://destination.missionsummittreks.com/api/clientreviews",
+      {
+        name: review?.name,
+        email: review?.email,
+        country_name: review?.country_name,
+        description: review?.description,
+        tour_id: review?.tour_id,
+        star_rating: review?.star_rating,
+      }
+    );
     if (clientReview.status === 200) {
       toast.success("Thank You For Your Feedback");
     }
@@ -102,27 +122,30 @@ export const postReview = createAsyncThunk(
 );
 
 export const postBooking = createAsyncThunk("terk/booking", async (booking) => {
-  const bookingDetails = await axios.post("/api/booking", {
-    booking_price: booking.booking_price,
-    no_of_travellers: booking.no_of_travellers,
-    add_ons: booking.add_ons,
-    passport_no: booking.passport_no,
-    expiry_date: booking.expiry_date,
-    tour_id: booking.tour_id,
-    payment_status: booking.payment_status,
-    mode: booking.mode,
-    title: booking.title,
-    first_name: booking.first_name,
-    last_name: booking.last_name,
-    email: booking.email,
-    confirm_email: booking.confirm_email,
-    date_of_birth: booking.date_of_birth,
-    nationality: booking.nationality,
-    country_code: booking.country_code,
-    mobile_number: booking.mobile_number,
-    pick_up_details: booking.pick_up_details,
-    departure_id: booking.departure_id,
-  });
+  const bookingDetails = await axios.post(
+    "https://destination.missionsummittreks.com/api/booking",
+    {
+      booking_price: booking.booking_price,
+      no_of_travellers: booking.no_of_travellers,
+      add_ons: booking.add_ons,
+      passport_no: booking.passport_no,
+      expiry_date: booking.expiry_date,
+      tour_id: booking.tour_id,
+      payment_status: booking.payment_status,
+      mode: booking.mode,
+      title: booking.title,
+      first_name: booking.first_name,
+      last_name: booking.last_name,
+      email: booking.email,
+      confirm_email: booking.confirm_email,
+      date_of_birth: booking.date_of_birth,
+      nationality: booking.nationality,
+      country_code: booking.country_code,
+      mobile_number: booking.mobile_number,
+      pick_up_details: booking.pick_up_details,
+      departure_id: booking.departure_id,
+    }
+  );
 
   if (bookingDetails.status === 200) {
     toast.success("Your Form Has Been Submitted Sucessfully ");
@@ -136,18 +159,24 @@ export const postBooking = createAsyncThunk("terk/booking", async (booking) => {
 export const tourSearch = createAsyncThunk(
   "tour/search",
   async ({ selectPlace, activity, date }) => {
-    const getTourList = await axios.get("/api/toursearches", {
-      params: {
-        destination_id: selectPlace,
-        activity_id: activity,
-        start_date: moment(date).format("YYYY-MM-D"),
-      },
-    });
+    const getTourList = await axios.get(
+      "https://destination.missionsummittreks.com/api/toursearches",
+      {
+        params: {
+          destination_id: selectPlace,
+          activity_id: activity,
+          start_date: moment(date).format("YYYY-MM-D"),
+        },
+      }
+    );
     return getTourList;
   }
 );
 export const fetchMenu = createAsyncThunk("fetch/menu/fulfilled", async () => {
-  const menu = await axios.get("/api/menus", {});
+  const menu = await axios.get(
+    "https://destination.missionsummittreks.com/api/menus",
+    {}
+  );
   return menu;
 });
 
