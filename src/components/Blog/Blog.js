@@ -29,7 +29,7 @@ const Blog = ({ blog }) => {
                         duration: 0.8,
                       }}
                     >
-                      <Link href={`${item?.slug}/`}>
+                      <Link href={`/${item?.slug}`}>
                         {item?.image && (
                           <img
                             className="card-img-top img-fluid"
@@ -54,7 +54,7 @@ const Blog = ({ blog }) => {
                             {item?.description.replace(/(<([^>]+)>)/gi, "")}
                           </p>
                           <button className=" btn-continue">
-                            <Link href={`/${item?.slug}/`}>
+                            <Link href={`/${item?.slug}`}>
                               Continue Reading...
                             </Link>
                           </button>

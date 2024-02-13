@@ -171,14 +171,14 @@ const Header = () => {
                     );
                   })}
 
-                  <li className=" nav-item ">
+                  {/* <li className=" nav-item ">
                     <Link
                       href="/about"
                       className=" nav-link active d-flex align-items-center mb-menu"
                     >
                       About
                     </Link>
-                  </li>
+                  </li> */}
 
                   <li className=" nav-item ">
                     <Link

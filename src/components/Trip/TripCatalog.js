@@ -64,7 +64,7 @@ const TripCatalog = (props) => {
                       </button>
                     </>
                   ) : (
-                    <img src="./Logo.png"></img>
+                    <img src="../../../Logo.png"></img>
                   )}
                 </Link>
               </div>

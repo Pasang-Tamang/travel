@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  trailingSlash: true,
+
   // webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
   //   config.plugins.push(
   //     new webpack.ProvidePlugin({

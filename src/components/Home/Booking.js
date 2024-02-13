@@ -20,9 +20,12 @@ const Booking = ({ featuredHome }) => {
     value: 4.5,
     isHalf: true,
     fontSize: 30,
-    // size: window.innerWidth < 600 ? 30 : 46,
     count: 5,
   };
+
+  if (typeof window !== "undefined") {
+    options.size = window.innerWidth < 600 ? 30 : 46;
+  }
   const [element, controls] = useScroll();
 
   // useEffect(() => {
@@ -34,22 +37,6 @@ const Booking = ({ featuredHome }) => {
   //   };
   //   fetchData();
   // }, []); // Empty dependency array to fetch data only once on mount
-
-  const [rating, setRating] = useState(0);
-  const ratingOptions = {
-    edit: false,
-    count: 5,
-    color: "#DEDDDC",
-    activeColor: "#fb8500",
-    value: rating, // Initial value
-    isHalf: true,
-    // size: window.innerWidth < 600 ? 20 : 28,
-  };
-
-  const handleRatingChange = (value) => {
-    setRating(value); // Update the rating value in the state
-  };
-  // useEffect(() => {}, [options.value]);
 
   return (
     <>

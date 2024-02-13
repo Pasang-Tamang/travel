@@ -13,10 +13,12 @@ const Top = ({ destination }) => {
   return (
     <>
       <section className="top-destination pt-5" ref={element}>
-        <h2 className="mb-4 text-center text-lg">Top Destinations</h2>
+        <h2 className="mb-4 ">
+          <span>Top </span> Destinations
+        </h2>
         <Container>
           <Row className="gy-4">
-            {console.log("desti", destination)}
+            {/* {console.log("desti", destination)} */}
             {destination?.slice(0, 3)?.map((item) => {
               return (
                 <Col md={6} lg={4} key={item.id}>

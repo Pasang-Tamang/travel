@@ -11,7 +11,7 @@ import Providers from "@/redux/Provider";
 import "react-image-lightbox/style.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/header/Header";
-import Head from "next/head";
+// import Head from "next/head";
 import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -25,7 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="npgg">
-      <Head>
+      <head>
         {/* <meta charset="utf-8" /> */}
         <link rel="icon" href="./Logo.png" />
         {/* <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> */}
@@ -41,6 +41,11 @@ export default function RootLayout({ children }) {
           async
           src="https://www.googletagmanager.com/gtag/js?id=UA-139720900-1"
         ></script>
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"
+        ></script>
         {/* <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> */}
         {/* <script
           src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
@@ -51,7 +56,7 @@ export default function RootLayout({ children }) {
         
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js"></script>
         */}
-      </Head>
+      </head>
       <body className={inter.className}>
         <Providers>
           <Header />

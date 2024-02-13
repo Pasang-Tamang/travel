@@ -16,8 +16,10 @@ import "react-image-lightbox/style.css";
 import Lightbox from "react-image-lightbox";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
+import PopUpModel from "../reusableComponents/PopUpModel";
+import EnqueryForm from "./EnqueryForm";
 
-const EverestTrek = ({ tour, tripId }) => {
+const EverestTrek = ({ tour, tripId, tourId, review }) => {
   const [fix, setFix] = useState(false);
   const [fixMid, setFixs] = useState(false);
   const [show, setShow] = useState(false);
@@ -25,7 +27,7 @@ const EverestTrek = ({ tour, tripId }) => {
   const [isMapOpen, setIsMapOpen] = useState(false);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [items, setItems] = useState([]);
-
+  const [rating, setRating] = useState(0);
   const [faq, setFaq] = useState([]);
 
   const targetRefs = [
@@ -39,6 +41,43 @@ const EverestTrek = ({ tour, tripId }) => {
     useRef(),
   ];
 
+  const [option, setOption] = useState({
+    edit: true,
+    color: "#DEDDDC",
+    activeColor: "#fb8500",
+    value: 5,
+    isHalf: true,
+    //size: window.innerWidth < 600 ? 20 : 12,
+  });
+
+  const [options, setOptions] = useState({
+    edit: false,
+    color: "#DEDDDC",
+    activeColor: "#fb8500",
+    value: 4.5, // Initial value
+    isHalf: true,
+    // size: window.innerWidth < 600 ? 20 : 28,
+    count: 5,
+  });
+
+  var ratingSize;
+  if (typeof window !== "undefined") {
+    ratingSize = window.innerWidth < 600 ? 20 : 28;
+  }
+  const ratingOptions = {
+    edit: false,
+    count: 5,
+    //color: "#DEDDDC",
+    color: "#fb8500",
+    value: rating, // Initial value
+    isHalf: true,
+    size: ratingSize,
+    //
+  };
+  const handleRatingChange = (value) => {
+    setRating(value); // Update the rating value in the state
+  };
+  useEffect(() => {}, [options.value]);
   useEffect(() => {
     // Assuming tour?.itinerary and tour?.faq are your original arrays
     const initialItinerary = tour?.itinerary || [];
@@ -126,6 +165,63 @@ const EverestTrek = ({ tour, tripId }) => {
     }
   };
 
+  const handleReviewForm = () => setShowReview(true);
+  const [more, setMore] = useState("");
+  const [, setLess] = useState("");
+  const [text, setText] = useState("View More");
+  const handleMore = () => {
+    if (more === "") {
+      setMore(
+        <div>
+          {review
+            ?.filter(
+              (item, index) =>
+                tour?.departures[index]?.tour_id === tour?.tour_id
+            )
+            ?.slice(0, 15)
+            ?.map((item, index) => (
+              <div key={index} className="mt-3">
+                <div className="d-flex">
+                  <h6>{review[index]?.name},</h6>
+                  <span className="ms-1">{review[index]?.country_name}</span>
+                </div>
+                <ReactStar {...option} />
+                <div className="review-content">
+                  <p>{review[index]?.description}</p>
+                </div>
+              </div>
+            ))}
+        </div>
+      );
+      setText("View Less");
+      setLess("");
+    } else if (more !== "") {
+      setLess(
+        <div>
+          {review
+            ?.filter(
+              (item, index) =>
+                tour?.departures[index]?.tour_id === tour?.tour_id
+            )
+            ?.slice(0, 3)
+            ?.map((item, index) => (
+              <div key={index} className="mt-3">
+                <div className="d-flex">
+                  <h6>{review[index]?.name},</h6>
+                  <span className="ms-1">{review[index]?.country_name}</span>
+                </div>
+                <ReactStar {...option} />
+                <div className="review-content">
+                  <p>{review[index]?.description}</p>
+                </div>
+              </div>
+            ))}
+        </div>
+      );
+      setMore("");
+      setText("View More");
+    }
+  };
   const setFixed = () => {
     if (typeof window !== "undefined") {
       if (window.scrollY >= 600) {
@@ -152,12 +248,30 @@ const EverestTrek = ({ tour, tripId }) => {
     }
   };
 
+  const setFixscroll = () => {
+    if (typeof window !== "undefined") {
+      if (window.scrollY >= 650) {
+        setNavFix(true);
+      } else if (window.scrollY <= 500) {
+        setNavFix(false);
+      }
+    }
+  };
   if (typeof window !== "undefined") {
     window.addEventListener("scroll", setFixed);
     window.addEventListener("scroll", setfixMid);
+    window.addEventListener("scroll", setFixscroll);
   }
+  const handleClose = () => setShow(false);
   return (
     <>
+      <PopUpModel
+        show={show}
+        handleclose={handleClose}
+        header="Inquire More About This Trip  "
+        body={<EnqueryForm tour={tour} />}
+        className="enquery-modal"
+      />
       <Container>
         <div className="everest-container">
           <div className="everest-right">
@@ -815,12 +929,12 @@ const EverestTrek = ({ tour, tripId }) => {
                     ? more
                     : ""}
                   <div className="text-end mt-2">
-                    <Link to={""}>
+                    <Link href={""}>
                       <button className="enquery" onClick={handleReviewForm}>
                         Write Review
                       </button>
                     </Link>
-                    <Link to={""}>
+                    <Link href={""}>
                       <button onClick={handleMore} className="nook-btn">
                         {text}
                       </button>
@@ -925,7 +1039,10 @@ const EverestTrek = ({ tour, tripId }) => {
                     {tour?.pdf && (
                       <div>
                         <a
-                          href={window.baseURL + tour?.pdf}
+                          href={
+                            "https://destination.missionsummittreks.com/" +
+                            tour?.pdf
+                          }
                           rel="noreferrer"
                           target="_blank"
                           download="mission.pdf"

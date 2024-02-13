@@ -48,11 +48,12 @@ export const postQuery = createAsyncThunk("clint/query", async (query) => {
       tour_id: query.tour_id,
     }
   );
+  //console.log(clint, "clint");
   if (clint.status === 200) {
     toast.success("Your Query Was Sent Sucessfully");
   }
   <ToastContainer />;
-  return console.log(clint.status);
+  return; //console.log(clint.status);
 });
 
 export const postEmail = createAsyncThunk("clint/query", async (email) => {

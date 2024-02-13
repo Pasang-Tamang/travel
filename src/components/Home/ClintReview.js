@@ -76,9 +76,9 @@ const ClintReview = ({ clintReview }) => {
     <>
       <section className="slide-clint mt-5">
         <Container className="mt-5">
-          <h1 className="text-center py-5">
+          <h2 className="text-center py-5">
             <span>Our happy</span> Clients
-          </h1>
+          </h2>
 
           <Carousel
             className="owl-theme clint-review-carsouel"
@@ -86,7 +86,7 @@ const ClintReview = ({ clintReview }) => {
             ssr={true}
             deviceType={deviceType}
           >
-            {console.log(clintReview, "reviewss")}
+            {/* {console.log(clintReview, "reviewss")} */}
             {clintReview?.map((clint) => (
               <ProfileItem key={clint} {...clint} />
             ))}

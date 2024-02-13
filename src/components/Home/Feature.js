@@ -72,31 +72,24 @@ const Feature = ({ featureTour }) => {
   const handleCloseVideo = () => setShowVideo(false);
 
   const [element, controls] = useScroll();
-  const options = {
-    edit: false,
-    color: "#DEDDDC",
-    activeColor: "#FB8500",
-    value: 4.5,
-    isHalf: true,
-    // size: window.innerWidth < 600 ? 20 : 26,
-    count: 5,
-  };
+
+  // const options = {
+  //   edit: false,
+  //   color: "#DEDDDC",
+  //   activeColor: "#FB8500",
+  //   value: 4.5,
+  //   isHalf: true,
+
+  //   // size: window.innerWidth < 600 ? 20 : 26,
+  //   count: 5,
+  // };
 
   const [rating, setRating] = useState(0);
-  const ratingOptions = {
-    edit: false,
-    count: 5,
-    color: "#DEDDDC",
-    activeColor: "#fb8500",
-    value: rating, // Initial value
-    isHalf: true,
-    // size: window.innerWidth < 600 ? 20 : 28,
-  };
 
   const handleRatingChange = (value) => {
     setRating(value); // Update the rating value in the state
   };
-  useEffect(() => {}, [options.value]);
+  // useEffect(() => {}, [options.value]);
   // console.log("feature", featureTour);
   return (
     <>
@@ -134,9 +127,13 @@ const Feature = ({ featureTour }) => {
                   activeColor: "#fb8500",
                   value: data?.overall_rating,
                   isHalf: true,
+
                   // size: window.innerWidth < 600 ? 20 : 20,
                   count: 5,
                 };
+                if (typeof window !== "undefined") {
+                  options.size = window.innerWidth < 600 ? 20 : 26;
+                }
                 return (
                   <>
                     <Col md={6} lg={4} key={index}>
@@ -257,7 +254,7 @@ const Feature = ({ featureTour }) => {
           <div className="more-feature">
             <Link href={"/triplist"}>
               <button className="vew-more">
-                view more <EastIcon className="right-arr" />
+                View More <EastIcon className="right-arr" />
               </button>
             </Link>
           </div>

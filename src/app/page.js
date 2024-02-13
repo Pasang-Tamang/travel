@@ -47,7 +47,7 @@ export async function fetchPopular() {
 
   return response.data;
 }
-async function fetchClientReview() {
+export async function fetchClientReview() {
   const res = await fetch(
     "https://destination.missionsummittreks.com/api/clientreviews"
   );

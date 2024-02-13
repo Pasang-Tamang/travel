@@ -1,19 +1,27 @@
+import { fetchClientReview } from "@/app/page";
 import EverestTrek from "@/components/EverestTrek/EverestTrek";
 import React from "react";
 
 async function page({ params }) {
+  const review = await fetchClientReview();
+
   const tripId = params.tripId;
-  //console.log(tripId, "myid");
+  console.log(params, tripId, "********************** id");
   const res = await fetch(
     "https://destination.missionsummittreks.com/api/tour/" + tripId
   );
   const tour = await res.json();
-  //console.log(tour, "000000000000000000000000000000000000");
+  console.log(tour.id, "000000000000000000000000000000000000");
 
   return (
     <div>
       {" "}
-      <EverestTrek tour={tour} tripId={tripId} />
+      <EverestTrek
+        review={review}
+        tour={tour}
+        tripId={tripId}
+        tourId={tour.id}
+      />
     </div>
   );
 }

@@ -16,7 +16,11 @@ export const store = configureStore({
     nav: Menu,
     clientEmail: email,
     filter: filterTour,
-    // middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+
+    // middleware: (getDefaultMiddleware) =>
+    //   getDefaultMiddleware({
+    //     serializableCheck: false,
+    //   }), //middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
   },
 });
 export default store;
