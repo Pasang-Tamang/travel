@@ -17,7 +17,7 @@ import { fetchBanner, fetchMenu } from "@/redux/slices/slice";
 const Header = () => {
   const dispatch = useDispatch();
   const data = useSelector((item) => item.bannerSetting.setting);
-  const menuTitle = useSelector((item) => item.nav.menu.data);
+  const menuTitle = useSelector((item) => item.nav.menu);
 
   const depthLevel = 0;
   const [fix, setFix] = useState(false);

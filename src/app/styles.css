@@ -538,6 +538,10 @@ button {
 .private {
   background-color: #a38059 !important;
 }
+
+/* table {
+  width: 0 !important;
+} */
 @media (max-width: 576px) {
   .blog-desc table td {
     padding: 10px 0 !important;
@@ -2502,8 +2506,14 @@ textarea::-webkit-input-placeholder:focus {
   margin-top: 30px;
 }
 .everest-container .everest-right .trip-review h2 {
-  font-size: 16px;
+  font-size: 22px;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .trip-review h3 {
+    font-size: 18px !important;
+  }
 }
 .everest-container .everest-right .trip-content {
   border: 1px solid #dbd3d3;
@@ -2736,6 +2746,9 @@ textarea::-webkit-input-placeholder:focus {
   padding: 10px 0px;
   border-top: 1px solid #e1e1e1;
   border-bottom: 1px solid #e1e1e1;
+}
+.review-content p {
+  text-align: justify;
 }
 .everest-container .everest-right .gallery h3 {
   font-size: 18px;
@@ -3191,6 +3204,34 @@ textarea::-webkit-input-placeholder:focus {
 }
 .trek-booking-container .book-terk .trek-bookk-left .person-detail .user-info {
   padding: 10px 20px;
+}
+@media (max-width: 576px) {
+  .info-nav {
+    align-items: center;
+    background-color: #fff !important;
+    color: #023047 !important;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: -12px;
+    margin-top: 6.5dvh !important;
+    transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+    width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .fixed-top,
+  .info-nav {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+}
+@media (max-width: 576px) {
+  .fixed-top {
+    margin-left: 1px !important;
+    position: static !important;
+    width: 95dvw !important;
+  }
 }
 @media (max-width: 576px) {
   .trek-booking-container
@@ -3694,6 +3735,19 @@ p {
   color: #023047;
   font-weight: 600;
   font-size: 36px;
+}
+.MuiLink-underlineHover {
+  text-decoration: none !important;
+}
+
+.MuiBreadcrumbs-li a {
+  text-decoration: none !important;
+}
+
+@media (max-width: 768px) {
+  .table .table-bordered {
+    width: 100px !important;
+  }
 }
 /* .blog .card .card-body h5 {
   font-size: 18px;

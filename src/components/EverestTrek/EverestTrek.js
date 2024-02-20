@@ -515,7 +515,7 @@ const EverestTrek = ({ tour, tripId, tourId, review }) => {
                 tour?.itinerary?.length > 0 && (
                   <div
                     className="container"
-                    style={{ marginLeft: "-10px" }}
+                    // style={{ marginLeft: "-10px" }}
                     ref={targetRefs[1]}
                   >
                     <div
@@ -794,7 +794,7 @@ const EverestTrek = ({ tour, tripId, tourId, review }) => {
               {Array.isArray(tour?.faq) && tour?.faq?.length > 0 && (
                 <div
                   className="container"
-                  style={{ marginLeft: "-10px" }}
+                  // style={{ marginLeft: "-10px" }}
                   ref={targetRefs[4]}
                 >
                   <div

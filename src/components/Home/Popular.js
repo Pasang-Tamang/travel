@@ -157,7 +157,7 @@ const SliderComponent = ({ popularTour }) => {
                       <div className="over-box-content">
                         <span className="me-5">
                           <i
-                            class="fa-regular fa-clock"
+                            className="fa-regular fa-clock"
                             style={{ marginRight: "3px" }}
                           ></i>
                           {Math.ceil(
@@ -170,7 +170,7 @@ const SliderComponent = ({ popularTour }) => {
                         </span>{" "}
                         <span>
                           <i
-                            class="fa-solid fa-dollar-sign"
+                            className="fa-solid fa-dollar-sign"
                             style={{ marginRight: "1px" }}
                           ></i>
                           {popular?.current_price}

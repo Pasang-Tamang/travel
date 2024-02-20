@@ -1947,7 +1947,7 @@ textarea::-webkit-input-placeholder:focus {
 }
 @media (max-width: 1280px) {
   .booking-cont {
-    padding-top: 30%;
+    padding-top: 13%;
   }
 }
 .booking .booking-text {
@@ -3968,13 +3968,26 @@ textarea::-webkit-input-placeholder:focus {
   object-fit: cover;
   width: 100%;
 }
-.banner .blogs-header {
+/* .banner .blogs-header {
   align-items: center;
   display: flex;
   flex-direction: column;
   left: 42%;
   position: absolute;
   top: 45%;
+} */
+
+.banner .blogs-header {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  width: 41%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .blogs-header h1 {
   color: #fff;
@@ -4084,11 +4097,20 @@ p {
   height: 470px;
   width: 780px;
 }
+
+@media (max-width: 750px) {
+  .blogs-title {
+    font-size: 25px;
+  }
+
+  .MuiBreadcrumbs-li a {
+    display: inline-block;
+  }
+}
 @media (max-width: 1280px) {
   .blogs-header {
-    left: 0 !important;
     /* position: absolute; */
-    width: 100%;
+    width: 90% !important;
   }
 
   .blogs-container {
@@ -4155,7 +4177,7 @@ p {
 .about-style ul {
   line-height: 30px;
   list-style-type: circle;
-  padding-left: 20px;
+  padding-left: 20px !important;
   /* margin-top: -10px !important; */
 }
 
@@ -4429,7 +4451,7 @@ element {
     margin: 0;
     padding: 0;
     position: inherit;
-    top: -20%;
+    top: -5%;
   }
 }
 

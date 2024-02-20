@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
-import "./styles.css";
+
 import "./globals.css";
+import "./styles.css";
 
 // import "@/styles/globals.css";
 // import "../styles/styles.scss";
@@ -44,7 +45,7 @@ export default function RootLayout({ children }) {
         <script
           src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
           integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
         {/* <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> */}
         {/* <script
@@ -57,16 +58,18 @@ export default function RootLayout({ children }) {
                 <script src="https://cdnjs.cloudflare.com/ajax/libs/mobile-detect/1.4.5/mobile-detect.min.js"></script>
         */}
       </head>
-      <body className={inter.className}>
-        <Providers>
-          <Header />
-          <div>{children}</div>
 
-          <Footer />
-        </Providers>
-        {/* // {children} */}
+      <body className={inter.className} suppressHydrationWarning={true}>
+        <div>
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+            {/* // {children} */}
+          </Providers>
+        </div>
 
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API = Tawk_API || {};
@@ -82,7 +85,7 @@ export default function RootLayout({ children }) {
               })();
             `,
           }}
-        />
+        /> */}
       </body>
     </html>
   );

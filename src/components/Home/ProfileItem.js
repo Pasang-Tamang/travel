@@ -7,6 +7,12 @@ import { useState } from "react";
 const ProfileItem = (props) => {
   const [isTruncated, setIsTruncated] = useState(true);
   const maxLength = 130;
+  const starCount = parseInt(props?.star_rating);
+
+  // {
+  //   console.log(typeof starCount, "copumnt");
+  // }
+
   return (
     <div>
       <div className="clint-box">
@@ -25,18 +31,21 @@ const ProfileItem = (props) => {
             <h3>{props.name}</h3>
             <span>{props.country_name}</span>
 
-            {props.star_rating > 0 && (
-              <ReactStars
-                classNames="custom-stars"
-                edit={false}
-                color="gray"
-                activeColor="#ffd700"
-                value={props.star_rating}
-                count={props.star_rating}
-                isHalf={true}
-                // size={window.innerWidth < 600 ? 20 : 20}
-              />
-            )}
+            {
+              props.star_rating > 0 && (
+                <ReactStars
+                  classNames="custom-stars"
+                  edit={false}
+                  color="gray"
+                  activeColor="#ffd700"
+                  value={starCount}
+                  count={starCount}
+                  isHalf={true}
+                />
+              )
+
+              //  size={window.innerWidth < 600 ? 20 : 20}
+            }
           </div>
         </div>
         {isTruncated ? (

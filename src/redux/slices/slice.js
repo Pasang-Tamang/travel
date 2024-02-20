@@ -16,16 +16,25 @@ export const fetchTopPlace = createAsyncThunk("", async () => {
   return response;
 });
 export const fetchTourList = createAsyncThunk("tour/fetchtours", async () => {
-  const list = await axios.get(
-    "https://destination.missionsummittreks.com/api/tours/list"
-  );
-  return list;
+  try {
+    const list = await axios.get(
+      "https://destination.missionsummittreks.com/api/tours/list"
+    );
+    return list;
+  } catch (error) {
+    throw error;
+  }
 });
 export const fetchBanner = createAsyncThunk("home/setting", async () => {
-  const setting = await axios.get(
-    "https://destination.missionsummittreks.com/api/settings"
-  );
-  return setting;
+  try {
+    const response = await axios.get(
+      "https://destination.missionsummittreks.com/api/settings"
+    );
+    // Extracting only the data field from the Axios response
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
 });
 export const fetchReview = createAsyncThunk("clint/review", async () => {
   const clint = await axios.get(
@@ -174,11 +183,16 @@ export const tourSearch = createAsyncThunk(
   }
 );
 export const fetchMenu = createAsyncThunk("fetch/menu/fulfilled", async () => {
-  const menu = await axios.get(
-    "https://destination.missionsummittreks.com/api/menus",
-    {}
-  );
-  return menu;
+  try {
+    const menu = await axios.get(
+      "https://destination.missionsummittreks.com/api/menus",
+      {}
+    );
+    // Extracting only the data field from the Axios response
+    return menu.data;
+  } catch (error) {
+    throw error;
+  }
 });
 
 const TopDistination = createSlice({
@@ -212,15 +226,6 @@ const bannerSetting = createSlice({
     setting: [],
     message: null,
   },
-  // extraReducers: {
-  //   [fetchBanner.pending]: (state, action) => {},
-  //   [fetchBanner.fulfilled]: (state, action) => {
-  //     state.setting = action.payload;
-  //   },
-  //   [fetchBanner.rejected]: (state, action) => {
-  //     state.message = action.error.message;
-  //   },
-  // },
 
   extraReducers: (builder) => {
     builder.addCase(fetchBanner.pending, (state, action) => {}),
@@ -316,16 +321,7 @@ const menu = createSlice({
   initialState: {
     menu: [],
   },
-  // extraReducers: {
-  //   [fetchMenu.pending]: (state, action) => {},
-  //   [fetchMenu.fulfilled]: (state, action) => {
-  //     state.menu = action.payload;
-  //     state.message = "sucess";
-  //   },
-  //   [fetchMenu.rejected]: (state, action) => {
-  //     state.message = action.error.message;
-  //   },
-  // },
+
   extraReducers: (builder) => {
     builder.addCase(fetchMenu.pending, (state, action) => {}),
       builder.addCase(fetchMenu.fulfilled, (state, action) => {

@@ -20,9 +20,14 @@ import {
   TwitterShareButton,
   WhatsappShareButton,
 } from "react-share";
+import { useRouter } from "next/navigation";
+import BreadCrump from "../utilities/BreadCrump";
 
 const BlogDetails = ({ blogDetailList }) => {
-  const shareURL = "https://destination.missionsummittreks.com/";
+  const router = useRouter();
+  console.log(router, "lc");
+
+  const shareURL = `https://destination.missionsummittreks.com`;
   //console.log(shareURL);
   const imageURL =
     "https://destination.missionsummittreks.com/" + blogDetailList?.image;
@@ -35,9 +40,9 @@ const BlogDetails = ({ blogDetailList }) => {
         <div className="blogs-header">
           <h1>BLOG</h1>
 
-          {/* <div className="breadcrump">
+          <div className="breadcrump">
             <BreadCrump />
-          </div> */}
+          </div>
         </div>
       </div>
 
@@ -55,7 +60,7 @@ const BlogDetails = ({ blogDetailList }) => {
               </div>
 
               <div className="blogs-content-details">
-                <h2 className="blogs-title">{blogDetailList?.title}</h2>
+                <h1 className="blogs-title">{blogDetailList?.title}</h1>
                 <div className="blogs-info ">
                   <div>
                     <span>Tent Camping</span>
@@ -78,8 +83,8 @@ const BlogDetails = ({ blogDetailList }) => {
                     <div>
                       <WhatsappShareButton
                         url={shareURL}
-                        title={blogDetailList?.meta_title}
-                        image={imageURL}
+                        // title={blogDetailList?.meta_title}
+                        // image={imageURL}
                         // description={blogDetailList?.description}
                       >
                         <WhatsappIcon size={32} round />

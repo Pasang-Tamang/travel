@@ -141,7 +141,7 @@ const Booking = ({ featuredHome }) => {
                   </div>
                 </div>
                 <div className="star d-flex align-items-center justify-content-center mt-4 ">
-                  <ReactStar {...options} />{" "}
+                  {/* <ReactStar {...options} />{" "} */}
                   <span className="ms-4">
                     {featuredHome?.no_of_reviews} Reviews
                   </span>

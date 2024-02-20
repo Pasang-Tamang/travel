@@ -20,10 +20,11 @@ const Top = ({ destination }) => {
           <Row className="gy-4">
             {/* {console.log("desti", destination)} */}
             {destination?.slice(0, 3)?.map((item) => {
+              //console.log(destination, "desti");
               return (
                 <Col md={6} lg={4} key={item.id}>
                   <div className="dist-box">
-                    <Link href={"/trip"}>
+                    <Link href={`/trip`}>
                       <motion.div
                         className="img-box"
                         variants={topDist}

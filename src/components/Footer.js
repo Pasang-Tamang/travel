@@ -28,9 +28,11 @@ const Footer = () => {
 
   const [page, setPage] = useState();
   useEffect(() => {
-    const response = axios.get("api/settings").then(({ data }) => {
-      setPage(data);
-    });
+    const response = axios
+      .get("https://destination.missionsummittreks.com/api/settings")
+      .then(({ data }) => {
+        setPage(data);
+      });
   }, []);
 
   const [partners, setPartners] = useState();
@@ -38,7 +40,9 @@ const Footer = () => {
   useEffect(() => {
     async function fetchAffiliatedData() {
       try {
-        const response = await axios.get("/api/affiliated");
+        const response = await axios.get(
+          "https://destination.missionsummittreks.com/api/affiliated"
+        );
         setPartners(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -356,7 +360,7 @@ const Footer = () => {
                   <Row className="gy-3">
                     {partners?.map((item, index) => {
                       return (
-                        <>
+                        <div key={index}>
                           <Col md={2}>
                             <Link href={""}>
                               <img
@@ -367,7 +371,7 @@ const Footer = () => {
                               />
                             </Link>
                           </Col>
-                        </>
+                        </div>
                       );
                     })}
                   </Row>
