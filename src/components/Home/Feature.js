@@ -20,6 +20,7 @@ import { featureAnimation } from "@/animation/Animation";
 import ImageListm from "./ImageList";
 
 const Feature = ({ featureTour }) => {
+  const baseUrl = process.env.url;
   const [isOpen, setIsOpen] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
@@ -143,10 +144,8 @@ const Feature = ({ featureTour }) => {
                         {/* <Link href={`/trip/${data?.slug}/`}> */}
                         <img
                           // src={window.baseURL + data?.image}
-                          src={
-                            "https://destination.missionsummittreks.com/" +
-                            data?.image
-                          }
+                          src={`${baseUrl}/${data?.image}
+                            `}
                           alt=""
                           className="img-fluid"
                           loading="lazy"

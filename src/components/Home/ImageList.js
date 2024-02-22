@@ -34,6 +34,7 @@ const option = {
   },
 };
 const ImageListm = ({ gallery }) => {
+  const url = process.env.url;
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
   return (
@@ -46,9 +47,7 @@ const ImageListm = ({ gallery }) => {
                 style={{
                   height: "400px",
                 }}
-                src={
-                  "https://destination.missionsummittreks.com/" + source?.image
-                }
+                src={`${url}/${source?.image}`}
                 alt=""
                 className="img-fluid"
               />

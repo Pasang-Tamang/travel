@@ -13,6 +13,7 @@ import { useScroll } from "../UseScroll";
 import { testimonialsAnimations } from "@/animation/Animation";
 
 const Booking = ({ featuredHome }) => {
+  const url = process.env.url;
   const options = {
     edit: false,
     color: "#fb8500",
@@ -43,9 +44,7 @@ const Booking = ({ featuredHome }) => {
       <section
         className="booking"
         style={{
-          backgroundImage: `url(${
-            "https://destination.missionsummittreks.com" + featuredHome?.image
-          })`,
+          backgroundImage: `url(${`${url}/${featuredHome?.image}`})`,
           backgroundSize: "cover",
         }}
         ref={element}

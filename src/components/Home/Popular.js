@@ -30,6 +30,7 @@ import PopUpModel from "../reusableComponents/PopUpModel";
 // }
 
 const SliderComponent = ({ popularTour }) => {
+  const baseUrl = process.env.url;
   let deviceType = "";
   let userAgent;
 
@@ -140,10 +141,8 @@ const SliderComponent = ({ popularTour }) => {
                   <div className="img-box">
                     <Link href={`/trip/${popular.slug}`}>
                       <img
-                        src={
-                          "https://destination.missionsummittreks.com/" +
-                          popular?.image
-                        }
+                        src={`${baseUrl}/${popular?.image}
+                          `}
                         className="img-fluid"
                         alt=""
                         loading="lazy"

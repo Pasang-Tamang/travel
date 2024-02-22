@@ -13,60 +13,47 @@ import ScrollToTopButton from "@/components/utilities/ScrollTop";
 import Top from "@/components/Home/Top";
 import ClintReview from "@/components/Home/ClintReview";
 
+const url = process.env.url;
+
 async function fetchSearch() {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/searches"
-  );
+  const res = await fetch(`${url}/api/searches`);
   const response = res.json();
   return response;
 }
 
 async function fetchBanner() {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/sliders"
-  );
+  const res = await fetch(`${url}/api/sliders`);
 
   const response = res.json();
   return response;
 }
 async function fetchFeature() {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/tours/featuredHolidays",
-    "utf-8"
-  );
+  const res = await fetch(`${url}/api/tours/featuredHolidays`, "utf-8");
   const response = await res.json();
   return response.data;
 }
 
 export async function fetchPopular() {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/tours/popular"
-  );
+  const res = await fetch(`${url}/api/tours/popular`);
 
   const response = await res.json();
 
   return response.data;
 }
 export async function fetchClientReview() {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/clientreviews"
-  );
+  const res = await fetch(`${url}/api/clientreviews`);
   const response = await res.json();
 
   return response;
 }
 async function fetchMeta() {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/settings"
-  );
+  const res = await fetch(`${url}/api/settings`);
   const response = await res.json();
   return response.data;
 }
 
 async function fetchTops() {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/topdestinations"
-  );
+  const res = await fetch(`${url}/api/topdestinations`);
 
   const response = await res.json();
   // console.log("destinationsss",  response);
@@ -74,9 +61,7 @@ async function fetchTops() {
 }
 
 async function featureHome() {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/tours/featuredHome"
-  );
+  const res = await fetch(`${url}/api/tours/featuredHome`);
   const response = await res.json();
   return response;
 }

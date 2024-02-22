@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-import {
-  Breadcrumbs as MUIBreadcrumbs,
-  Link,
-  Typography,
-} from "@material-ui/core";
+
+import Typography from "@mui/material/Typography";
+import Breadcrumbs from "@mui/material/Breadcrumbs";
+import Link from "@mui/material/Link";
 import { Container } from "react-bootstrap";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
@@ -16,7 +15,7 @@ const BreadCrump = () => {
   return (
     <>
       <Container>
-        <MUIBreadcrumbs aria-label="breadcrumb">
+        <Breadcrumbs aria-label="breadcrumb">
           {pathnames.length ? (
             <Link onClick={() => router.push("/")}>Home</Link>
           ) : (
@@ -36,7 +35,7 @@ const BreadCrump = () => {
               </Link>
             );
           })}
-        </MUIBreadcrumbs>
+        </Breadcrumbs>
       </Container>
     </>
   );

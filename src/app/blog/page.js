@@ -1,9 +1,8 @@
 import Blog from "@/components/Blog/Blog";
 
+const url = process.env.url;
 export const fetchBlogs = async () => {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/blogs/list"
-  );
+  const res = await fetch(`${url}/api/blogs/list`);
   const response = await res.json();
   return response;
 };

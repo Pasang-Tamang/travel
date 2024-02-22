@@ -5,19 +5,16 @@ import { fetchBlogs } from "../blog/page";
 import AboutDetails from "@/components/About/AboutDetails";
 import OurTeam from "@/components/OurTeam/page";
 
+const url = process.env.url;
 const fetchBlogDetailList = async (slug) => {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/blog/" + slug
-  );
+  const res = await fetch(`${url}/api/blog/${slug} `);
   const response = await res.json();
   //console.log("Blogresponse", response);
   return response;
 };
 
 const fetchAbout = async (slug) => {
-  const res = await fetch(
-    "https://destination.missionsummittreks.com/api/menudetail/" + slug
-  );
+  const res = await fetch(`${url}/api/menudetail/${slug}`);
   const response = await res.json();
   console.log("about", response);
   return response;
@@ -33,24 +30,45 @@ export async function generateMetadata({ params }, parent) {
 
     return {
       title: aboutMeta?.meta_title,
+      description: aboutMeta?.meta_description,
       //description: <div dangerouslySetInnerHTML={{ __html: desc }} />,
       keyword: aboutMeta?.meta_keywords,
     };
-  } else if (slug === "blog") {
+  } else if (slug === "our-team") {
+    return {
+      title: "Our Team",
+      description: "Our Team Description",
+      keyword: "OUr Team keywords",
+      //description: <div dangerouslySetInnerHTML={{ __html: desc }} />,
+    };
+  } else {
     const blogMeta = await fetchBlogDetailList(slug);
-    const previousImages = (await parent).openGraph?.images || [];
-    //const title = blogMeta?.meta_title;
+    //const previousImages = (await parent.openGraph?.images) || [];
+    //const image = Image()
+    const title = blogMeta?.meta_title;
     //console.log("----------------------------------------------------", blogMeta);
     //const imageURL = "https://destination.missionsummittreks.com/" + blogMeta
-    const imageURL =
-      "https://destination.missionsummittreks.com/" + blogMeta?.image;
+    const imageURL = `${url}/` + blogMeta?.image;
     //console.log(image, "iamgeeee");
+
     return {
       title: blogMeta?.meta_title,
       description: blogMeta?.meta_description,
       keyword: blogMeta?.meta_keyword,
+
       openGraph: {
-        images: [imageURL, ...previousImages],
+        // images: [imageURL, ...previousImages],
+        // title: blogMeta?.meta_title,
+        // description: blogMeta?.meta_description,
+        // keyword: blogMeta?.meta_keyword,
+        // url:`https://destination.missionsummittreks.com/${blogMeta?.slug}`,
+        images: [
+          {
+            url: imageURL,
+            width: 1200, // Adjust according to your image width
+            height: 630,
+          },
+        ],
       },
     };
   }
@@ -60,7 +78,8 @@ export default async function slug({ params, searchParams }) {
   console.log(slug);
 
   //console.log("++++++++++++++", params);
-  if (slug === "about" || slug === "our-team") {
+  // if (slug === "about" || slug === "our-team")
+  if (slug === "about") {
     const aboutDetails = await fetchAbout(slug);
     const popularTour = await fetchPopular();
     const blog = await fetchBlogs();
@@ -73,6 +92,8 @@ export default async function slug({ params, searchParams }) {
     );
   } else if (slug === "our-team") {
     const aboutDetails = await fetchAbout(slug);
+    const popularTour = await fetchPopular();
+    const blog = await fetchBlogs();
     return (
       <AboutDetails
         aboutDetails={aboutDetails}
@@ -82,6 +103,7 @@ export default async function slug({ params, searchParams }) {
     );
   } else {
     const blogDetailList = await fetchBlogDetailList(slug);
+
     console.log(slug, "************************************");
     return <BlogDetails blogDetailList={blogDetailList} />;
   }

@@ -4,6 +4,7 @@ import { Row, Col } from "react-bootstrap";
 //import Breadcrumb from "react-bootstrap/Breadcrumb";
 import { Container } from "react-bootstrap";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 //import BreadCrump from "../Components/utilities/BreadCrump";
 import {
   FacebookIcon,
@@ -24,10 +25,12 @@ import { useRouter } from "next/navigation";
 import BreadCrump from "../utilities/BreadCrump";
 
 const BlogDetails = ({ blogDetailList }) => {
+  const url = process.env.url;
   const router = useRouter();
-  console.log(router, "lc");
+  const pathname = usePathname();
+  console.log(pathname, "pathname");
 
-  const shareURL = `https://destination.missionsummittreks.com`;
+  const shareURL = `${url}${pathname}`;
   //console.log(shareURL);
   const imageURL =
     "https://destination.missionsummittreks.com/" + blogDetailList?.image;
@@ -82,8 +85,8 @@ const BlogDetails = ({ blogDetailList }) => {
 
                     <div>
                       <WhatsappShareButton
-                        url={shareURL}
-                        // title={blogDetailList?.meta_title}
+                        url={imageURL}
+                        title={blogDetailList?.meta_title}
                         // image={imageURL}
                         // description={blogDetailList?.description}
                       >
@@ -98,7 +101,11 @@ const BlogDetails = ({ blogDetailList }) => {
                     </div>
 
                     <div>
-                      <TwitterShareButton url={shareURL}>
+                      <TwitterShareButton
+                        url={shareURL}
+                        title={blogDetailList?.meta_title}
+                        description={blogDetailList?.meta_description}
+                      >
                         {/* <TwitterIcon size={32} round /> */}
 
                         <XIcon size={32} round />
@@ -107,7 +114,7 @@ const BlogDetails = ({ blogDetailList }) => {
 
                     <div>
                       <PinterestShareButton
-                        // media={window.baseURL + blogDetailList?.image}
+                        media={`https://destination.missionsummittreks.com/${blogDetailList?.image}`}
                         url={shareURL}
                       >
                         <PinterestIcon size={32} round />

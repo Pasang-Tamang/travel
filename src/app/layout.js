@@ -63,13 +63,15 @@ export default function RootLayout({ children }) {
         <div>
           <Providers>
             <Header />
+
             {children}
+
             <Footer />
             {/* // {children} */}
           </Providers>
         </div>
 
-        {/* <script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               var Tawk_API = Tawk_API || {};
@@ -85,7 +87,7 @@ export default function RootLayout({ children }) {
               })();
             `,
           }}
-        /> */}
+        />
       </body>
     </html>
   );

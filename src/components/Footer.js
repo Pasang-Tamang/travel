@@ -20,6 +20,7 @@ import { postquery } from "@/redux/slices/slice";
 
 import axios from "axios";
 const Footer = () => {
+  const url = process.env.url;
   const dispatch = useDispatch();
   const [down, setDown] = useState(false);
   const [element, controls] = useScroll();
@@ -28,11 +29,9 @@ const Footer = () => {
 
   const [page, setPage] = useState();
   useEffect(() => {
-    const response = axios
-      .get("https://destination.missionsummittreks.com/api/settings")
-      .then(({ data }) => {
-        setPage(data);
-      });
+    const response = axios.get(`${url}/api/settings`).then(({ data }) => {
+      setPage(data);
+    });
   }, []);
 
   const [partners, setPartners] = useState();
@@ -40,9 +39,7 @@ const Footer = () => {
   useEffect(() => {
     async function fetchAffiliatedData() {
       try {
-        const response = await axios.get(
-          "https://destination.missionsummittreks.com/api/affiliated"
-        );
+        const response = await axios.get(`${url}/api/affiliated`);
         setPartners(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);

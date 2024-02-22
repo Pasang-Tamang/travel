@@ -9,12 +9,12 @@ import React, { Suspense } from "react";
 import { Container } from "react-bootstrap";
 //import Loading from "../loading";
 
+const url = process.env.url;
+
 export async function getToursData(params) {
   console.log("main api");
   console.log("main params", params);
-  const res = await fetch(
-    `https://destination.missionsummittreks.com/api/tours/list?${params}`
-  );
+  const res = await fetch(`${url}/api/tours/list?${params}`);
 
   const response = await res.json();
   //console.log(response, "-----------------");

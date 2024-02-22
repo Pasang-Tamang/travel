@@ -8,6 +8,7 @@ import { topPlaceContent } from "@/animation/Animation";
 import { topDist } from "@/animation/Animation";
 
 const Top = ({ destination }) => {
+  const url = process.env.url;
   const [element, controls] = useScroll();
 
   return (
@@ -24,7 +25,8 @@ const Top = ({ destination }) => {
               return (
                 <Col md={6} lg={4} key={item.id}>
                   <div className="dist-box">
-                    <Link href={`/trip`}>
+                    <Link href={`/trip?page=1&destination_id=${item.id}`}>
+                      {console.log(item, "destination item")}
                       <motion.div
                         className="img-box"
                         variants={topDist}
@@ -34,10 +36,8 @@ const Top = ({ destination }) => {
                         }}
                       >
                         <img
-                          src={
-                            "https://destination.missionsummittreks.com/" +
-                            item?.image
-                          }
+                          src={` ${url}/${item?.image}
+                            `}
                           alt=""
                           className="img-fluid"
                           loading="lazy"

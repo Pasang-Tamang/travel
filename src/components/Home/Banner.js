@@ -18,6 +18,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import OwlCarousel from 'react-owl-carousel'
 
 import { useRouter } from "next/navigation";
+import { useDispatch } from "react-redux";
+import { tourSearch } from "@/redux/slices/slice";
 //import { tourSearch } from "@/redux/slices/slice";
 
 // const options = [
@@ -48,13 +50,33 @@ const Banner = ({ banner, search }) => {
   };
 
   // dispatching fetchSearch and search banner
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
+  const filterQueryString = (filterKey, filterValue) => {
+    if (filterValue) {
+      return `${filterKey}=${filterValue}`;
+    } else {
+      return;
+    }
+  };
   const searchHandler = (e) => {
     e.preventDefault();
+    console.log("search clicked");
 
-    // dispatch(tourSearch({ selectPlace, activity }));
-    // router.push("/search");
+    console.log(selectPlace, "place", activity, "activity");
+
+    const params = [];
+    params.push(filterQueryString("activity_id", activity));
+    params.push(filterQueryString("destination_id", selectPlace));
+
+    console.log(params, "paramsarray");
+    const queryString = params.filter(Boolean).join("&");
+    console.log(queryString, "queryString");
+    const newURL = `/trip?page=1${queryString}`;
+
+    dispatch(tourSearch(queryString));
+    //dispatch(tourSearch({ selectPlace, activity }));
+    router.push(newURL);
   };
 
   //******************************** Try to search *******************
@@ -126,11 +148,15 @@ const Banner = ({ banner, search }) => {
                   </Col>
 
                   <Col xs={5} md={2} lg={2} className="text-end">
-                    <Link href={"/triplist"}>
-                      <div className="d-flex align-items-center justify-content-center">
-                        <button type="submit" className="search-trip">
-                          <Link
-                            href={"/triplist"}
+                    <div className="d-flex align-items-center justify-content-center">
+                      <button type="submit" className="search-trip">
+                        <p>SEARCH</p>
+                      </button>
+                    </div>
+                    {/* <Link href={"/trip"}> */}
+
+                    {/* <Link
+                            href={"/trip"}
                             state={{
                               activityId: activity,
                               destination: selectPlace,
@@ -140,7 +166,7 @@ const Banner = ({ banner, search }) => {
                           >
                             <div className="d-flex align-items-center jutify-content-center">
                               <Link
-                                href={"/triplist"}
+                                href={"/trip"}
                                 state={{
                                   activityId: activity,
                                   destination: selectPlace,
@@ -152,10 +178,7 @@ const Banner = ({ banner, search }) => {
                               </Link>{" "}
                               <p>SEARCH</p>
                             </div>
-                          </Link>
-                        </button>
-                      </div>
-                    </Link>
+                          </Link> */}
                   </Col>
                 </Row>
               </form>
